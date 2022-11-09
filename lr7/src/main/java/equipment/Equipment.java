@@ -36,9 +36,9 @@ public class Equipment {
         System.out.print("Enter type of armour:");
         this.typeofarmour= scanstring.nextLine();
     }
-    public void sorting(List<Equipment> equipmentList){
-        equipmentList.sort(Comparator.comparingDouble(Equipment::getWeight));
-    }
+//    public void sorting(List<Equipment> equipmentList){
+//        equipmentList.sort(Comparator.comparingDouble(Equipment::getWeight));
+//    }
     public double getCost() {
         return cost;
     }

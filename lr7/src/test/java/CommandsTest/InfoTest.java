@@ -23,6 +23,6 @@ public class InfoTest {
     public void testInfo() throws Exception {
         Info info=new Info();
         ResultOfCommand<String> res=info.execute();
-        assertEquals(result.Result(),res.Result());
+        assertEquals(result.getResult(),res.getResult());
     }
 }

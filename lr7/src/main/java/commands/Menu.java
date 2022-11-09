@@ -17,10 +17,6 @@ public class Menu {
     public void menu() throws Exception {
         Loginlist usersdata = new Loginlist();
         usersdata.loginList();
-        EquipList allequip = new EquipList();
-        allequip.ArrayOfAll();
-        WeaponList allWeapon = new WeaponList();
-        allWeapon.setAllweapon();
         Map<Integer, Commands> commands = new HashMap<>();
         int resindex=report.size();
         commands.put(1,new Info());
@@ -37,7 +33,7 @@ public class Menu {
             report.add(resindex,result);
             resindex++;
             if(numOfCommand==3 && result.isSuccessful()){
-                menuOfEquipment(allequip,allWeapon,resindex);
+                menuOfEquipment();
             }
             System.out.print("Welcome to menu.\nEnter what do you want to do?\nInfo - 1\nRegistration - 2\nLog in - 3\nExit - 0\nYour choice - ");
             numOfCommand = scan.nextInt();
@@ -47,35 +43,38 @@ public class Menu {
         usersdata.enterall();
     }
 
-    public void menuOfEquipment(EquipList allEquipment,WeaponList allWeapon,int resindex) throws Exception
+    public void menuOfEquipment() throws Exception
     {
+        EquipList allequip = new EquipList();
+        allequip.ArrayOfAll();
+        WeaponList allWeapon = new WeaponList();
+        allWeapon.setAllweapon();
         KnightInfo listknights=new KnightInfo();
         listknights.setKnights();
         List<EquipList> knightsEquipment=new ArrayList<>();
         List<WeaponList> knightsWeapon=new ArrayList<>();
         printequip();
         Map<Integer, Commands> equipment=new HashMap<>();
-        equipment.put(1,new SelectEquipment(listknights,allEquipment,knightsEquipment));
-        equipment.put(2, new AddEquipment(allEquipment,allWeapon));
+        equipment.put(1,new SelectEquipment(listknights,allequip,knightsEquipment));
+        equipment.put(2, new AddEquipment(allequip,allWeapon));
         equipment.put(3,new DeleteEquipment(listknights,knightsEquipment,knightsWeapon));
         equipment.put(4,new SelectWeapon(listknights,allWeapon,knightsWeapon));
         equipment.put(5,new LogOut());
-        equipment.put(6,new UpdateEquipment(allEquipment,allWeapon));
-        equipment.put(7,new BuildReport(listknights,knightsEquipment,knightsWeapon,report,dates));
+        equipment.put(6,new UpdateEquipment(allequip,allWeapon));
+        equipment.put(7,new BuildReport(listknights,knightsEquipment,knightsWeapon));
         Scanner scan = new Scanner(System.in);
         int numberOfAction = scan.nextInt();
         while(numberOfAction != 0){
             ResultOfCommand<String> result= equipment.get(numberOfAction).execute();;
             long time=System.currentTimeMillis();
-            dates.add(resindex,new Date(time));
-            report.add(resindex,result);
-            resindex++;
+            dates.add(report.size(),new Date(time));
+            report.add(report.size(),result);
             if(numberOfAction==5)
                 break;
             printequip();
             numberOfAction = scan.nextInt();
         }
-        allEquipment.enterAllEquipment();
+        allequip.enterAllEquipment();
     }
     public void enterreport() throws IOException {
         FileWriter writer=new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Report.txt");

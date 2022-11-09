@@ -21,10 +21,10 @@ public class Loginlist {
         fileReader.close();
     }
     public void addLogin(String name,String password,String mail) throws IOException {
-        FileWriter writer =new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Logins.txt");
+       // FileWriter writer =new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Logins.txt");
         logins.add(logins.size(),new Login(name,password,mail));
         //writer.write(mail+"\n"+name+"\n"+password+"\n");
-        writer.close();
+       // writer.close();
     }
     public void enterall() throws IOException {
         FileWriter writer = new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Logins.txt");

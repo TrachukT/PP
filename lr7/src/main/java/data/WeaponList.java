@@ -22,9 +22,8 @@ public class WeaponList {
         this.allweapon.add(10,new Lance("fgfg","Lance",4,37.09,6.6,12));
         this.allweapon.add(11,new Lance("fgfg","Lance",4,32,7.3,20));
     }
-    public void updateWeapon(int i){
+    public void updateWeapon(Scanner scanner,int i){
         System.out.print("Enter the new cost of the weapon: ");
-        Scanner scanner=new Scanner(System.in);
         double cost=scanner.nextDouble();
         this.allweapon.get(i).setCost(cost);
     }

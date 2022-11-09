@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BuildReport implements Commands {
-    private List<ResultOfCommand<String>> result;
-    private List<java.util.Date> dates;
+//    private List<ResultOfCommand<String>> result;
+//    private List<java.util.Date> dates;
     private KnightInfo knight;
     private List<EquipList> equipLists;
     private List<WeaponList> weaponLists;
@@ -19,7 +19,7 @@ public class BuildReport implements Commands {
     public ResultOfCommand<String> execute() throws IOException {
         if(knight.getsize()==0){
             System.out.println("You have no knights");
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Action possible",true);
+            ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","There is no knights",true);
             return result;
         }
         for(int i=0;i<knight.getsize();i++) {
@@ -33,27 +33,25 @@ public class BuildReport implements Commands {
                 weaponLists.get(i).printList();
             }
         }
-        if(dates.isEmpty() && result.isEmpty()){
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Lists are empty",true);
-            return result;
-        }
-        FileWriter fileWriter=new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Report.txt");
-        for(int i=0;i< result.size() && i<dates.size();i++){
-            System.out.println("Time of action: "+dates.get(i));
-            System.out.println("Info about action: "+result.get(i).Result());
-            fileWriter.write(dates.get(i)+"\n"+ result.get(i).getResult()+"\n"+result.get(i).getInformation()+"\n"+result.get(i).isSuccessful()+"\n");
-        }
-        fileWriter.close();
+//        if(dates.isEmpty() && result.isEmpty()){
+//            ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Lists are empty",true);
+//            return result;
+//        }
+//        FileWriter fileWriter=new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Report.txt");
+//        for(int i=0;i< result.size() && i<dates.size();i++){
+//            System.out.println("Time of action: "+dates.get(i));
+//            System.out.println("Info about action: "+result.get(i).Result());
+//            fileWriter.write(dates.get(i)+"\n"+ result.get(i).getResult()+"\n"+result.get(i).getInformation()+"\n"+result.get(i).isSuccessful()+"\n");
+//        }
+//        fileWriter.close();
         System.out.println("Building report works!");
         ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Build report works",true);
         return result;
     }
-    public BuildReport(KnightInfo knight, List<EquipList> equipLists, List<WeaponList> weaponLists,List<ResultOfCommand<String>> res,List<java.util.Date> dates){
+    public BuildReport(KnightInfo knight, List<EquipList> equipLists, List<WeaponList> weaponLists){
         this.knight=knight;
         this.equipLists=equipLists;
         this.weaponLists=weaponLists;
-        this.dates=dates;
-        this.result=res;
     }
 }
 

@@ -52,39 +52,4 @@ public class Email {
             throw new RuntimeException(e);
         }
     }
-//        final String username = "maxim.milinevskiy@outlook.com";
-//        final String password = "Gta6pl73";
-//
-//        Properties prop = new Properties();
-//        prop.put("mail.smtp.host", "smtp.office365.com");
-//        prop.put("mail.smtp.port", "587");
-//        prop.put("mail.smtp.auth", "true");
-//        prop.put("mail.smtp.ssl.protocols", "TLSv1.2");
-//        prop.put("mail.smtp.starttls.enable", "true");
-//        Session session = Session.getInstance(prop,
-//                new javax.mail.Authenticator() {
-//                    protected PasswordAuthentication getPasswordAuthentication() {
-//                        return new PasswordAuthentication(username, password);
-//                    }
-//                });
-//
-//        try {
-//
-//            Message message = new MimeMessage(session);
-//            message.setFrom(new InternetAddress("maxim.milinevskiy@outlook.com"));
-//            message.setRecipients(
-//                    Message.RecipientType.TO,
-//                    InternetAddress.parse("tankatrachuk@gmail.com")
-//            );
-//            message.setSubject("Test message");
-//            message.setText("Dear Таня,"
-//                    + "\n\n Test message complete");
-//
-//            Transport.send(message);
-//
-//            System.out.println("Done");
-//
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-//        }}
 }

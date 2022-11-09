@@ -15,11 +15,16 @@ public class SelectWeapon implements Commands {
     @Override
     public ResultOfCommand<String> execute()   {
         Scanner scanner=new Scanner(System.in);
-        int choice=knights.chooseKnight();
+        int choice=knights.chooseKnight(scanner);
+//        System.out.println("Choose the knight you want to equip from list below:");
+//        knights.printList();
+//        System.out.print("Your choice - ");
+//        int choice= scanner.nextInt();
+//        System.out.println("You chose "+knights.getknight(choice).toString(choice));
         checksize(choice);
         if(knightsWeapon.get(choice).getsize()!=0){
             System.out.println("You already chose weapon for this knight.Pick another knight");
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has equipment",false);
+            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has weapon",false);
             return result;
         }
         allWeapon.printList();

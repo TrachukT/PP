@@ -5,6 +5,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mock;
+
+import java.io.ByteArrayInputStream;
+import java.util.Scanner;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -44,6 +48,17 @@ public class KnightInfoTest {
         double m= knights.getknight(1).getAmountOfMoney();
         knights.addMoney(1,40.05);
         assertTrue(Isequals(m+40.05,knights.getknight(1).getAmountOfMoney()));
+    }
+    @Test
+    public void addKnightTest(){
+        String simulatedUserInput = "fllkl" +  System.getProperty("line.separator")
+                +"18" +  System.getProperty("line.separator")
+                +"15" +  System.getProperty("line.separator")
+                +"judas" +  System.getProperty("line.separator")
+                +"1900" +  System.getProperty("line.separator");
+        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
+        Scanner scanner=new Scanner(System.in);
+        knights.addKnight(scanner);
     }
 
 

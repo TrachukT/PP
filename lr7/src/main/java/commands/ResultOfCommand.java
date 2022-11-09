@@ -18,9 +18,9 @@ public class ResultOfCommand<T> {
         return result;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
-    }
+    //public void setInformation(String information) {
+//        this.information = information;
+//    }
 
     public void setResult(T result) {
         this.result = result;
@@ -33,9 +33,9 @@ public class ResultOfCommand<T> {
         return isSuccessful;
     }
 
-    public void setSuccessful(boolean successful) {
-        isSuccessful = successful;
-    }
+//    public void setSuccessful(boolean successful) {
+//        isSuccessful = successful;
+//    }
     public String Result() {
         return   "Result of command - " + result + "\ninfo - " + information +"\nIsSuccesful - " + isSuccessful;
     }

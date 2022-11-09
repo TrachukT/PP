@@ -17,7 +17,7 @@ public class UpdateEquipment implements Commands {
             this.equipList.printList();
             System.out.print("Enter what equipment info you want to update:");
             choice = scanner.nextInt();
-            this.equipList.updateEquipment(choice);
+            this.equipList.updateEquipment(scanner,choice);
             this.equipList.printList();
             System.out.println("Update is successful!");
             ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Update equipment works",true);
@@ -27,7 +27,7 @@ public class UpdateEquipment implements Commands {
             this.weaponList.printList();
             System.out.print("Enter what weapon info you want to update:");
             choice = scanner.nextInt();
-            this.weaponList.updateWeapon(choice);
+            this.weaponList.updateWeapon(scanner,choice);
             this.weaponList.printList();
             System.out.println("Update is successful!");
             ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Update weapon works",true);

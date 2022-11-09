@@ -30,8 +30,7 @@ public class KnightInfo {
         for(int i=0;i<this.arrayList.size();i++)
             System.out.println(this.arrayList.get(i).toString(i));
     }
-    public int chooseKnight(){
-        Scanner scan=new Scanner(System.in);
+    public int chooseKnight(Scanner scan){
         System.out.println("Choose the knight you want to equip from list below:");
         printList();
         System.out.print("Your choice - ");
@@ -46,8 +45,8 @@ public class KnightInfo {
     public int getsize(){
         return this.arrayList.size();
     }
-    public void addKnight(){
-        this.arrayList.add(arrayList.size(),new Knight());
+    public void addKnight(Scanner scanner){
+        this.arrayList.add(arrayList.size(),new Knight(scanner));
     }
     public Knight getknight(int i){
         return this.arrayList.get(i);

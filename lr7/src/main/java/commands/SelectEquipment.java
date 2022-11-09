@@ -13,7 +13,12 @@ public class SelectEquipment implements Commands {
     @Override
     public ResultOfCommand<String> execute() {
         Scanner scan=new Scanner(System.in);
-        int choice=knightlist.chooseKnight();
+        int choice=knightlist.chooseKnight(scan);
+//        System.out.println("Choose the knight you want to equip from list below:");
+//        knightlist.printList();
+//        System.out.print("Your choice - ");
+//        int choice= scan.nextInt();
+//        System.out.println("You chose "+knightlist.getknight(choice).toString(choice));
         checksize(choice);
         if(knightequip.get(choice).getsize()!=0){
             System.out.println("You already chose equipment for this knight.Pick another knight");

@@ -10,6 +10,7 @@ public class Registration implements Commands {
     @Override
     public ResultOfCommand<String> execute() throws IOException {
         Scanner scan=new Scanner(System.in);
+        user.printlist();
         System.out.println("Enter your mail adress");
         String mail= scan.next();
         if(!user.checkmail(mail)){

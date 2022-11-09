@@ -5,6 +5,7 @@ import data.KnightInfo;
 import data.WeaponList;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,11 @@ public class DeleteEquipment implements Commands {
     @Override
     public ResultOfCommand<String> execute() {
         Scanner scanner=new Scanner(System.in);
+        if(knightList.getsize()==0){
+            System.out.println("There is no knights");
+            ResultOfCommand<String> result = new ResultOfCommand<>("Failed","No knights",false);
+            return result;
+        }
         if(equipmentlist.size()==0 && weaponList.size()==0){
             System.out.println("All knights has no equipment and no weapon.Firstly select equipment or weapon");
             ResultOfCommand<String> result = new ResultOfCommand<>("Failed","Nothing to delete",false);
@@ -22,12 +28,23 @@ public class DeleteEquipment implements Commands {
         }
         System.out.println("For what knight you want delete equipment:");
         knightList.printList();
-        int knight = scanner.nextInt();
+        int knight = 0;
+        boolean isInput = false;
+        while (!isInput)
+        {
+            try {
+                knight = Integer.parseInt(scanner.next());
+                isInput = true;
+            }catch (NumberFormatException e) {
+                System.out.println("You enter wrong symbol.Enter number");
+                isInput = false;
+            }
+        }
         System.out.println(knightList.getknight(knight).toString(knight));
         System.out.println("Which part of equip you want to delete: 1 - equipment,2 - weapon");
         int choice=scanner.nextInt();
         if(choice==1 && knight<equipmentlist.size()) {
-            System.out.println("Which part of equipment you want to delete");
+            System.out.print("Which part of equipment you want to delete - ");
             equipmentlist.get(knight).printList();
             int equip = scanner.nextInt();
             if (equipmentlist.get(knight).getsize()<equip){
@@ -48,8 +65,8 @@ public class DeleteEquipment implements Commands {
             weaponList.get(knight).printList();
             int weapon = scanner.nextInt();
             if (weaponList.get(knight).getsize()<weapon){
-                System.out.println("This knight has no such type of equip");
-                ResultOfCommand<String> result = new ResultOfCommand<>("Failed", "Unpossible delete", false);
+                System.out.println("This knight has no such type of weapon");
+                ResultOfCommand<String> result = new ResultOfCommand<>("Failed", "Impossible delete", false);
                 return result;
             }
             knightList.addMoney(knight,weaponList.get(knight).getelem(weapon).getCost());
@@ -62,7 +79,7 @@ public class DeleteEquipment implements Commands {
         }
         else{
             System.out.println("This knight has no such type of equip");
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed", "Unpossible delete", false);
+            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed", "Impossible delete", false);
             return result;
         }
     }

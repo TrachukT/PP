@@ -15,16 +15,19 @@ public class Knight {
         this.nationality = nationality;
         this.amountOfMoney=amountOfMoney;
     }
-    public Knight(){
-        Scanner scan=new Scanner(System.in);
+    public Knight(Scanner scan){
         System.out.print("Enter the name:");
-        this.name= scan.next();
+        String name= scan.next();
+        setName(name);
         System.out.print("Enter the age:");
-        this.age= scan.nextInt();
+        int age= scan.nextInt();
+        setAge(age);
         System.out.print("Enter the century:");
-        this.century= scan.nextInt();
+        int century= scan.nextInt();
+        setCentury(century);
         System.out.print("Enter the nationality:");
-        this.nationality= scan.next();
+        String nationality= scan.next();
+        setNationality(nationality);
         System.out.print("Enter the amount of money for equip:");
         this.amountOfMoney= scan.nextDouble();
     }

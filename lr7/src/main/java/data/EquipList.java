@@ -34,9 +34,8 @@ public class EquipList {
     public ArrayList<Equipment> getAllequipment() {
         return allequipment;
     }
-    public void updateEquipment(int i){
+    public void updateEquipment(Scanner scanner, int i){
         System.out.print("Enter the new cost of the equipment: ");
-        Scanner scanner=new Scanner(System.in);
         double cost=scanner.nextDouble();
         this.allequipment.get(i).setCost(cost);
     }
@@ -48,21 +47,21 @@ public class EquipList {
         }
         writer.close();
     }
-    public void equipmentList() throws IOException {
-        FileReader fileReader = new FileReader("C:\\Users\\38098\\lr7\\src\\main\\resources\\Equipment.txt");
-        Scanner scanner = new Scanner(fileReader);
-        for (int i = 0;scanner.hasNext();i++)
-        {
-            String name = scanner.nextLine();
-            String material=scanner.nextLine();
-            double cost = scanner.nextDouble();
-            double weight=scanner.nextDouble();
-            double strength = scanner.nextDouble();
-            String typeofarmor = scanner.nextLine();
-            allequipment.add(i,new Equipment(name,material,cost,weight,strength,typeofarmor));
-        }
-        fileReader.close();
-    }
+//    public void equipmentList() throws IOException {
+//        FileReader fileReader = new FileReader("C:\\Users\\38098\\lr7\\src\\main\\resources\\Equipment.txt");
+//        Scanner scanner = new Scanner(fileReader);
+//        for (int i = 0;scanner.hasNext();i++)
+//        {
+//            String name = scanner.nextLine();
+//            String material=scanner.nextLine();
+//            double cost = scanner.nextDouble();
+//            double weight=scanner.nextDouble();
+//            double strength = scanner.nextDouble();
+//            String typeofarmor = scanner.nextLine();
+//            allequipment.add(i,new Equipment(name,material,cost,weight,strength,typeofarmor));
+//        }
+//        fileReader.close();
+//    }
     public void addKnightEquip(Equipment element, int index){
         this.allequipment.add(index,element);
     }
