@@ -1,0 +1,48 @@
+Steel Helmet
+steel
+116.45
+7.8
+6.0
+Helmet
+Steel armor
+steel
+35.0
+34.8
+8.0
+Chest
+Steel Boots
+steel
+24.56
+21.4
+3.0
+Boots
+Wood Shield
+wood
+16.0
+12.8
+6.0
+Shield
+Leather Boots
+leather
+16.0
+12.8
+4.0
+Boots
+Leather helmet
+wood
+16.0
+12.8
+6.0
+Helmet
+Wolfram Shield
+wolfram
+16.0
+12.8
+6.0
+Shield
+Leather Boots
+leather
+16.0
+12.8
+6.0
+Boots
