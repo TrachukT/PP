@@ -1,14 +1,15 @@
 package Database;
 
-import data.EquipList;
-import data.KnightInfo;
-import data.Loginlist;
+import data.*;
 import equipment.Equipment;
 import knight.Knight;
+import org.apache.maven.plugin.logging.Log;
+import weapon.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Scanner;
 
 public class ReadData {
@@ -21,7 +22,7 @@ public class ReadData {
         Statement statement;
         ResultSet resultSet;
         try {
-            String query =String.format("select * from %s","logins");
+            String query =String.format("select * from %s ORDER BY loginid ASC ","logins");
             statement=this.connection.createStatement();
             resultSet=statement.executeQuery(query);
             while (resultSet.next()){
@@ -43,10 +44,9 @@ public class ReadData {
         Statement statement;
         ResultSet resultSet;
         try {
-            String query =String.format("select * from %s","equipment");
+            String query =String.format("select * from %s ORDER BY equipmentid ASC","equipment");
             statement=this.connection.createStatement();
             resultSet=statement.executeQuery(query);
-            int count=0;
             while (resultSet.next()){
                 String name =resultSet.getString("name");
                 String material =resultSet.getString("material");
@@ -65,10 +65,9 @@ public class ReadData {
         ResultSet resultSet;
         Scanner scanner=new Scanner(System.in);
         try {
-            String query =String.format("select * from %s","knights");
+            String query =String.format("select * from %s ORDER BY knightid ASC","knights");
             statement=this.connection.createStatement();
             resultSet=statement.executeQuery(query);
-            int count=0;
             while (resultSet.next()){
                 String name =resultSet.getString("name");
                 int age =resultSet.getInt("age");
@@ -80,5 +79,117 @@ public class ReadData {
         }catch (Exception e){
             System.out.println("Read failed"+ e);
         }
+    }
+    public void readWeapon(WeaponList weaponList) {
+        Statement statement;
+        ResultSet resultSet;
+        String name;
+        String type;
+        double weight;
+        double cost;
+        double damage;
+        try {
+            String query = String.format("select * from %s", "bow");
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                type = resultSet.getString("type");
+                weight = resultSet.getDouble("weight");
+                cost = resultSet.getDouble("cost");
+                damage = resultSet.getDouble("damage");
+                int amofarrows = resultSet.getInt("amountofarows");
+                String typeofbowstring = resultSet.getString("typeofbowstring");
+                weaponList.insertWeapon(new Bow(name, type, weight, cost, damage, amofarrows, typeofbowstring));
+            }
+            query = String.format("select * from %s", "axe");
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                type = resultSet.getString("type");
+                weight = resultSet.getDouble("weight");
+                cost = resultSet.getDouble("cost");
+                damage = resultSet.getDouble("damage");
+                String bladeshape = resultSet.getString("bladeshape");
+                weaponList.insertWeapon(new Axe(name, type, weight, cost, damage, bladeshape));
+            }
+            query = String.format("select * from %s", "knife");
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                type = resultSet.getString("type");
+                weight = resultSet.getDouble("weight");
+                cost = resultSet.getDouble("cost");
+                damage = resultSet.getDouble("damage");
+                String typeofknife = resultSet.getString("typeofknife");
+                weaponList.insertWeapon(new Knife(name, type, weight, cost, damage, typeofknife));
+            }
+            query = String.format("select * from %s", "sword");
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                type = resultSet.getString("type");
+                weight = resultSet.getDouble("weight");
+                cost = resultSet.getDouble("cost");
+                damage = resultSet.getDouble("damage");
+                String typeofblade = resultSet.getString("typeofblade");
+                weaponList.insertWeapon(new Sword(name, type, weight, cost, damage, typeofblade));
+            }
+            query = String.format("select * from %s", "lance");
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                name = resultSet.getString("name");
+                type = resultSet.getString("type");
+                weight = resultSet.getDouble("weight");
+                cost = resultSet.getDouble("cost");
+                damage = resultSet.getDouble("damage");
+                int lengthoflance = resultSet.getInt("lengthoflance");
+                weaponList.insertWeapon(new Lance(name, type, weight, cost, damage, lengthoflance));
+            }
+        } catch (Exception e) {
+            System.out.println("Read failed" + e);
+        }
+    }
+    public void readKnightsEquipment(Login user, Loginlist loginlist,KnightInfo knightlist,EquipList equipList,List<EquipList> knightsequipment){
+        String query;
+        Statement statement;
+        ResultSet resultSet;
+        double allcost=0.0;
+        try {
+        query = String.format("select * from %s where userid = '%d'", "knightsequip",userid(loginlist,user));
+        statement = this.connection.createStatement();
+        resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+            allcost=0.0;
+            int knightid = resultSet.getInt("knightid")-1;
+            int equipmentid = resultSet.getInt("equipmentid")-1;
+            checksize(knightsequipment,knightid);
+            knightsequipment.get(knightid).addKnightEquip(equipList.getelem(equipmentid),knightsequipment.get(knightid).getsize());
+            allcost+= equipList.getelem(equipmentid).getCost();
+            knightlist.cutMoney(knightid,allcost);
+        }
+        } catch (Exception e) {
+        System.out.println("Read failed" + e);
+        }
+    }
+    public void checksize(List<EquipList> knightsequip,int i){
+        if(knightsequip.size()<=i){
+            for(int k=knightsequip.size();k<=i;k++){
+                knightsequip.add(k,new EquipList());
+            }
+        }
+    }
+    public int userid(Loginlist loginlist, Login user){
+        int count=0;
+        for(;count<loginlist.getsize();count++){
+            if(loginlist.getelem(count).getName().equals(user.getName())&& loginlist.getelem(count).getMail().equals(user.getMail())){
+                return (count+1);
+            }
+        }
+        return 0;
     }
 }

@@ -1,11 +1,14 @@
 package commands;
 
+import data.Login;
 import data.Loginlist;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Registration implements Commands {
+    private List<Login> chooseduser;
     private Loginlist user;
     @Override
     public ResultOfCommand<String> execute() throws IOException {
@@ -24,10 +27,12 @@ public class Registration implements Commands {
         String password= scan.next();
         System.out.println("You are registered!Please login into your created account");
         user.addLogin(name,password,mail);
+        chooseduser.add(0,new Login(name,password,mail));
         ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Registration works",true);
         return result;
     }
-    public Registration(Loginlist users) {
+    public Registration(List<Login> chooseduser, Loginlist users) {
+        this.chooseduser=chooseduser;
         this.user = users;
     }
 }

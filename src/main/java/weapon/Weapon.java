@@ -3,11 +3,11 @@ package weapon;
 import java.util.Scanner;
 
 public class Weapon {
-    String name;
-    String type;
-    double weight;
-    double cost;
-    double damage;
+    protected String name;
+    protected String type;
+    protected double weight;
+    protected double cost;
+    protected double damage;
     public Weapon(String name,String type,double weight,double cost,double damage){
         this.name=name;
         this.type=type;

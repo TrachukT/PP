@@ -20,11 +20,11 @@ public class SelectEquipment implements Commands {
 //        int choice= scan.nextInt();
 //        System.out.println("You chose "+knightlist.getknight(choice).toString(choice));
         checksize(choice);
-        if(knightequip.get(choice).getsize()!=0){
-            System.out.println("You already chose equipment for this knight.Pick another knight");
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has equipment",false);
-            return result;
-        }
+//        if(knightequip.get(choice).getsize()!=0){
+//            System.out.println("You already chose equipment for this knight.Pick another knight");
+//            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has equipment",false);
+//            return result;
+//        }
         //knightequip.add(choice,new EquipList());
         equiplist.printList();
         System.out.print("Which equipment you want to add - ");
@@ -36,7 +36,7 @@ public class SelectEquipment implements Commands {
             if(!isExist(equiplist.getelem(equip), knightequip.get(choice))){
                 money-=equiplist.getelem(equip).getCost();
                 if(money<=0)  break;
-                knightequip.get(choice).addKnightEquip(equiplist.getelem(equip),countofequipment);
+                knightequip.get(choice).addKnightEquip(equiplist.getelem(equip),knightequip.get(choice).getsize());
                 countofequipment+=1;
                 allcost+=equiplist.getelem(equip).getCost();
                 System.out.println("Amount of money left - "+money);

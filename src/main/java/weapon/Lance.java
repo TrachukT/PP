@@ -1,9 +1,11 @@
 package weapon;
 
+import Database.Insert;
+
 import java.util.Scanner;
 
 public class Lance extends Weapon{
-    int lengthoflance;
+    protected int lengthoflance;
     public Lance(String name,String type,double weight,double cost,double damage,int lengthoflance){
         super(name,type,weight,cost,damage);
         this.lengthoflance=lengthoflance;
@@ -14,6 +16,8 @@ public class Lance extends Weapon{
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter the length of blade: ");
         this.lengthoflance=scanner.nextInt();
+        Insert insert=new Insert();
+        insert.insertLance(name, type, weight, cost, damage, lengthoflance);
     }
 
     @Override

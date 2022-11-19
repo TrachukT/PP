@@ -1,4 +1,6 @@
 package knight;
+import Database.Insert;
+
 import java.util.Scanner;
 public class Knight {
     private double getAmountOfMoney;
@@ -15,7 +17,8 @@ public class Knight {
         this.nationality = nationality;
         this.amountOfMoney=amountOfMoney;
     }
-    public Knight(Scanner scan){
+    public Knight(){
+        Scanner scan=new Scanner(System.in);
         System.out.print("Enter the name:");
         String name= scan.next();
         setName(name);
@@ -30,6 +33,8 @@ public class Knight {
         setNationality(nationality);
         System.out.print("Enter the amount of money for equip:");
         this.amountOfMoney= scan.nextDouble();
+        Insert insert=new Insert();
+        insert.insertKnight(name,age,century,nationality,amountOfMoney);
     }
     public String getName() {
         return name;

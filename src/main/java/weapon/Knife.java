@@ -1,9 +1,11 @@
 package weapon;
 
+import Database.Insert;
+
 import java.util.Scanner;
 
 public class Knife extends Weapon{
-    String typeofknife;
+    protected String typeofknife;
     public Knife(String name,String type,double weight,double cost,double damage,String typeofknife){
         super(name,type,weight,cost,damage);
         this.typeofknife=typeofknife;
@@ -14,6 +16,8 @@ public class Knife extends Weapon{
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter the type of knife: ");
         this.typeofknife=scanner.nextLine();
+        Insert insert=new Insert();
+        insert.insertKnife(name, type, weight, cost, damage, typeofknife);
     }
 
     @Override

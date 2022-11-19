@@ -3,10 +3,12 @@ package commands;
 import data.Login;
 import data.Loginlist;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LogIn implements Commands {
-    Loginlist userlist;
+    private List<Login> chooseduser;
+    private Loginlist userlist;
     @Override
     public ResultOfCommand<String> execute()  {
         userlist.printlist();
@@ -22,10 +24,13 @@ public class LogIn implements Commands {
             ResultOfCommand<String> result = new ResultOfCommand<String>("Critical error","No login in base",false);
             return result;
         }
+        this.chooseduser.add(0,user);
+        System.out.println(this.chooseduser.toString());
         ResultOfCommand<String> result = new ResultOfCommand<String>("Succeeded","Login works",true);
         return result;
     }
-    public LogIn(Loginlist users) {
+    public LogIn(List<Login> chooseduser,Loginlist users) {
+        this.chooseduser=chooseduser;
         this.userlist = users;
     }
 }

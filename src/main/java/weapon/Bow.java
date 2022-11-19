@@ -1,10 +1,12 @@
 package weapon;
 
+import Database.Insert;
+
 import java.util.Scanner;
 
 public class Bow extends Weapon{
-    int amOfArrows;
-    String typeOfBowstring;
+    protected int amOfArrows;
+    protected String typeOfBowstring;
     public Bow(String name,String type,double weight,double cost,double damage,int amofarrows,String typeofbowstring){
         super(name,type,weight,cost,damage);
         this.amOfArrows = amofarrows;
@@ -18,6 +20,8 @@ public class Bow extends Weapon{
         this.amOfArrows=scanner.nextInt();
         System.out.print("Enter the amount of arrows: ");
         this.typeOfBowstring=scanner.nextLine();
+        Insert insert=new Insert();
+        insert.insertBow(name, type, weight, cost, damage, amOfArrows, typeOfBowstring);
     }
 
     @Override
