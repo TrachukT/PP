@@ -22,11 +22,11 @@ public class SelectWeapon implements Commands {
 //        int choice= scanner.nextInt();
 //        System.out.println("You chose "+knights.getknight(choice).toString(choice));
         checksize(choice);
-        if(knightsWeapon.get(choice).getsize()!=0){
-            System.out.println("You already chose weapon for this knight.Pick another knight");
-            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has weapon",false);
-            return result;
-        }
+//        if(knightsWeapon.get(choice).getsize()!=0){
+//            System.out.println("You already chose weapon for this knight.Pick another knight");
+//            ResultOfCommand<String> result = new ResultOfCommand<String>("Failed","Knight already has weapon",false);
+//            return result;
+//        }
         allWeapon.printList();
         System.out.print("Which weapon you want to add - ");
         int weapon=scanner.nextInt();
@@ -37,7 +37,7 @@ public class SelectWeapon implements Commands {
             if(!isExist(allWeapon.getelem(weapon), knightsWeapon.get(choice))){
                 money-=allWeapon.getelem(weapon).getCost();
                 if(money<=0)  break;
-                knightsWeapon.get(choice).addKnightWeapon(allWeapon.getelem(weapon),countOfWeapon);
+                knightsWeapon.get(choice).addKnightWeapon(allWeapon.getelem(weapon),knightsWeapon.get(choice).getsize());
                 countOfWeapon+=1;
                 allcost+=allWeapon.getelem(weapon).getCost();
                 System.out.println("Amount of money left - "+money);

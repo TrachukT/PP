@@ -65,6 +65,7 @@ public class Menu {
         List<EquipList> knightsEquipment=new ArrayList<>();
         readData.readKnightsEquipment(chooseduser,userdata,listknights,allequip,knightsEquipment);
         List<WeaponList> knightsWeapon=new ArrayList<>();
+        readData.readKnightsWeapon(chooseduser,userdata,listknights,allWeapon,knightsWeapon);
         printequip();
         Map<Integer, Commands> equipment=new HashMap<>();
         equipment.put(1,new SelectEquipment(listknights,allequip,knightsEquipment));
@@ -82,7 +83,8 @@ public class Menu {
             dates.add(report.size(),new Date(time));
             report.add(report.size(),result);
             if(numberOfAction==5) {
-                insert.insertKnightResults(userdata,chooseduser,allequip,knightsEquipment);
+                insert.insertKnightEquipment(userdata,chooseduser,allequip,knightsEquipment);
+                insert.insertKnightsWeapon(userdata,chooseduser,allWeapon,knightsWeapon);
                 break;
             }
             printequip();

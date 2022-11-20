@@ -1,15 +1,10 @@
 package Database;
 
-import data.EquipList;
-import data.Login;
-import data.Loginlist;
+import data.*;
 import equipment.Equipment;
-import org.apache.maven.plugin.logging.Log;
-import org.postgresql.util.internal.Nullness;
+import weapon.Weapon;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Locale;
@@ -108,7 +103,7 @@ public class Insert {
             System.out.println("Insert failed\n"+e);
         }
     }
-    public void insertKnightResults(Loginlist loginlist, Login user, EquipList equipList, List<EquipList> knightsEquipment){
+    public void insertKnightEquipment(Loginlist loginlist, Login user, EquipList equipList, List<EquipList> knightsEquipment){
         Statement statement;
         int equipid;
         Delete delete=new Delete();
@@ -118,15 +113,48 @@ public class Insert {
                 try {
                     String query;
                         equipid = findid(equipList, knightsEquipment.get(i).getelem(k));
-                        query = String.format(Locale.US, "insert into knightsequip(userid, knightid, equipmentid)  values('%d','%d','%s');", userid(loginlist, user), i + 1, equipid);
+                        query = String.format(Locale.US, "insert into knightsequip(userid, knightid, equipmentid)  values('%d','%d','%d');", userid(loginlist, user), i + 1, equipid);
                         statement = this.connection.createStatement();
                         statement.executeUpdate(query);
-                        System.out.println("Row inserted");
+                        System.out.println("Equipment inserted");
                 } catch (Exception e) {
-                    System.out.println("Insert failed\n" + e);
+                    System.out.println("Equipment insert failed\n" + e);
                 }
             }
         }
+    }
+    public void insertKnightsWeapon(Loginlist loginlist, Login user, WeaponList weaponList,List<WeaponList> knightsWeapon){
+        Statement statement;
+        int equipid;
+        Delete delete=new Delete();
+        delete.deleteKnightsWeapon(userid(loginlist, user));
+        for(int i=0;i< knightsWeapon.size();i++){
+            if(knightsWeapon.get(i).getsize()!=0){
+                String bow=weaponname(knightsWeapon.get(i),"bow");
+                String axe=weaponname(knightsWeapon.get(i),"axe");
+                String knife=weaponname(knightsWeapon.get(i),"knife");
+                String sword=weaponname(knightsWeapon.get(i),"sword");
+                String lance=weaponname(knightsWeapon.get(i),"lance");
+            //for(int k=0;k<knightsWeapon.get(i).getsize();k++) {
+                try {
+                    String query;
+                    query = String.format(Locale.US, "insert into knightsweapon(userid, knightid, bow,axe,knife,sword,lance)  values('%d','%d','%s','%s','%s','%s','%s');", userid(loginlist, user), i + 1,bow,axe,knife,sword,lance);
+                    statement = this.connection.createStatement();
+                    statement.executeUpdate(query);
+                    System.out.println("Weapon inserted");
+                } catch (Exception e) {
+                    System.out.println("Weapon Insert failed\n" + e);
+                }
+            }
+        }
+    }
+    public String weaponname(WeaponList weaponList,String type){
+            for(int count=0;count<weaponList.getsize();count++){
+                if(weaponList.getelem(count).getType().equalsIgnoreCase(type)){
+                    return weaponList.getelem(count).getName();
+                }
+            }
+            return "NULL";
     }
     public int userid(Loginlist loginlist, Login user){
         int count=0;

@@ -20,4 +20,15 @@ public class Delete {
             System.out.println("Delete failed\n"+e);
         }
     }
+    public void deleteKnightsWeapon(int userid){
+        Statement statement;
+        try {
+            String query = String.format("delete from knightsweapon where userid= '%s'",userid);
+            statement= this.connection.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Row deleteded");
+        }catch (Exception e){
+            System.out.println("Delete failed\n"+e);
+        }
+    }
 }

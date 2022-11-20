@@ -176,10 +176,57 @@ public class ReadData {
         System.out.println("Read failed" + e);
         }
     }
+    public void readKnightsWeapon(Login user, Loginlist loginlist,KnightInfo knightlist,WeaponList weaponList,List<WeaponList> knightsweapon){
+        String query;
+        Statement statement;
+        ResultSet resultSet;
+        //double allcost=0.0;
+        try {
+            query = String.format("select * from %s where userid = '%d'", "knightsweapon",userid(loginlist,user));
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                int knightid = resultSet.getInt("knightid")-1;
+                weaponid(knightsweapon,weaponList,resultSet.getString("bow"),knightlist,knightid);
+                weaponid(knightsweapon,weaponList,resultSet.getString("axe"),knightlist,knightid);
+                weaponid(knightsweapon,weaponList,resultSet.getString("knife"),knightlist,knightid);
+                weaponid(knightsweapon,weaponList,resultSet.getString("sword"),knightlist,knightid);
+                weaponid(knightsweapon,weaponList,resultSet.getString("lance"),knightlist,knightid);
+//                checksizeweapon(knightsweapon,knightid);
+//                knightsweapon.get(knightid).addKnightWeapon(weaponList.getelem(bow),knightsweapon.get(knightid).getsize());
+//                allcost+= weaponList.getelem(equipmentid).getCost();
+//                knightlist.cutMoney(knightid,allcost);
+            }
+        } catch (Exception e) {
+            System.out.println("Read failed" + e);
+        }
+    }
+
+    public void weaponid(List<WeaponList> knightsweapon,WeaponList weaponList,String name,KnightInfo knightlist,int knightid){
+        if(name.equalsIgnoreCase("NULL")){
+            return;
+        }
+        double allcost=0.0;
+        for(int count=0;count<weaponList.getsize();count++){
+            if(weaponList.getelem(count).getName().equals(name)){
+                checksizeweapon(knightsweapon,knightid);
+                knightsweapon.get(knightid).addKnightWeapon(weaponList.getelem(count),knightsweapon.get(knightid).getsize());
+                allcost+= weaponList.getelem(count).getCost();
+                knightlist.cutMoney(knightid,allcost);
+            }
+        }
+    }
     public void checksize(List<EquipList> knightsequip,int i){
         if(knightsequip.size()<=i){
             for(int k=knightsequip.size();k<=i;k++){
                 knightsequip.add(k,new EquipList());
+            }
+        }
+    }
+    public void checksizeweapon(List<WeaponList> knightsweapon,int i){
+        if(knightsweapon.size()<=i){
+            for(int k=knightsweapon.size();k<=i;k++){
+                knightsweapon.add(k,new WeaponList());
             }
         }
     }

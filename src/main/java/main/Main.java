@@ -9,6 +9,8 @@ import equipment.Equipment;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        String k="1";
+        int kint=Integer.parseInt(k);
         Menu account = new Menu();
         account.menu();
     }
