@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.AddEquipmentAppl">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="35.0" prefHeight="34.0" prefWidth="553.0" text="What type of ammunition do you want to add?">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="116.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonEquipment" prefHeight="46.0" prefWidth="147.0" text="Equipment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="358.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonWeapon" prefHeight="46.0" prefWidth="147.0" text="Weapon">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="24.0" layoutY="322.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="64.0" prefWidth="95.0" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
