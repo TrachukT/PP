@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.RegistrationAppl">
+   <children>
+      <Button layoutX="198.0" layoutY="313.0" mnemonicParsing="false" onAction="#ButtonRegister" prefHeight="38.0" prefWidth="84.0" text="Register">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="344.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="38.0" prefWidth="112.0" text="Back to menu">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="72.0" layoutY="110.0" prefHeight="18.0" prefWidth="90.0" text="Email" />
+      <Label layoutX="72.0" layoutY="172.0" prefHeight="18.0" prefWidth="90.0" text="Username" />
+      <Label layoutX="72.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Password" />
+      <TextField fx:id="email" layoutX="237.0" layoutY="106.0" prefHeight="26.0" prefWidth="150.0" />
+      <TextField fx:id="username" layoutX="237.0" layoutY="168.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label alignment="CENTER" layoutX="180.0" layoutY="18.0" prefHeight="38.0" prefWidth="264.0" text="Welcome to registration. Create new account" />
+      <PasswordField fx:id="password" layoutX="237.0" layoutY="226.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label fx:id="error" layoutX="134.0" layoutY="279.0" />
+      <Label fx:id="registered" layoutX="341.0" layoutY="278.0" prefHeight="18.0" prefWidth="45.0" />
+   </children>
+</AnchorPane>
