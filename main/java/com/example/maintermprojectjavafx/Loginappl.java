@@ -1,9 +1,7 @@
 package com.example.maintermprojectjavafx;
 
-import data.AllDataInterface;
-import data.Login;
+import data.*;
 import database.ReadData;
-import data.Loginlist;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Loginappl {
     private Stage stage;
@@ -39,17 +39,29 @@ public class Loginappl {
 //        stage.setTitle("Log into system");
 //        stage.setScene(scene);
 //    }
-    public void switchSubmit(ActionEvent event) throws IOException {
+    private ReadData readData=new ReadData();
+    private static List<EquipList> knightsequip=new ArrayList<>();
+    private static List<WeaponList> knightsweapon = new ArrayList<>();
+    private static KnightInfo knightInfo=new KnightInfo();
+    private  static EquipList equipList=new EquipList();
+    private static WeaponList weaponList=new WeaponList();
+    public void switchSubmit(ActionEvent  event) throws IOException {
         String emailText = email.getText();
         String usernameText = username.getText();
         String passwordText = password.getText();
-        ReadData readData=new ReadData();
         Loginlist usersdata = new Loginlist();
         readData.readLogins(usersdata);
+        readData.readWeapon(weaponList);
+        readData.readEquip(equipList);
+        readData.readKnights(knightInfo);
         Login user=new Login(usernameText,passwordText,emailText);
         if(usersdata.finduser(user)) {
             error.setText("");
             AllDataInterface.setUser(user);
+            readData.readKnightsEquipment(readData.userid(usersdata,user),knightInfo,equipList,knightsequip);
+            //readData.readKnightsWeapon(readData.userid(usersdata,user),knightInfo,weaponList,knightsweapon);
+            AllDataInterface.setKnightInfo(knightInfo);
+            AllDataInterface.setKnightsEquip(knightsequip);
             switchMenuOfActions(event);
         }
         else if (usersdata.checkpassword(user)){

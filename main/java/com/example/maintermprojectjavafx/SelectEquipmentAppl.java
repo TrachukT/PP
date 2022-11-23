@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -67,15 +68,32 @@ public class SelectEquipmentAppl implements Initializable {
     private TableColumn<Equipment, Double> strengthEquip = new TableColumn<>();
     @FXML
     private TableColumn<Equipment,String> typeofarmorEquip = new TableColumn<>();
-    public void buttonGetData(ActionEvent event) throws  IOException{
-        ReadData readData=new ReadData();
-        ObservableList<Knight> equipment = readData.readKnightsInterface();
-        knightsTable.setItems(equipment);
-    }
+    @FXML
+    Label error;
+    @FXML
+    Label addedlist;
+    @FXML
+    Label money;
     private static List<EquipList> knigthequip=new ArrayList<>();
     private ReadData readData=new ReadData();
     private static KnightInfo knightInfo=new KnightInfo();
     private static EquipList equipList=new EquipList();
+    private static int i=0;
+    public void buttonGetData(ActionEvent event) throws  IOException{
+        ReadData readData=new ReadData();
+        ObservableList<Knight> equipment = readData.readKnightsInterface();
+        knightsTable.setItems(equipment);
+        if(i==0) {
+            Loginlist loginlist = new Loginlist();
+            knigthequip = AllDataInterface.getKnightsEquip();
+            knightInfo = AllDataInterface.getKnightInfo();
+            for (int i = 0; i < knigthequip.size(); i++) {
+                System.out.println(knightInfo.getknight(i).toString(i));
+                knigthequip.get(i).printList();
+            }
+            i++;
+        }
+    }
     public void buttonChooseKnight(ActionEvent event) throws  IOException{
         int IdW = knightsTable.getSelectionModel().getSelectedIndex();
         allDataInterface.setIdofKnight(IdW);
@@ -130,22 +148,26 @@ public class SelectEquipmentAppl implements Initializable {
     public void chooseEquipment(ActionEvent event){
         int Id = EquipTable.getSelectionModel().getSelectedIndex();
         allDataInterface.setIdofEquipment(Id);
-        System.out.println("\nfgfg\n"+allDataInterface.getIdofKnight());
+        //System.out.println("\nfgfg\n"+allDataInterface.getIdofKnight());
        if(equipList.getsize()==0) {
            //ReadData readData = new ReadData();
            readData.readEquip(equipList);
        }
 
-        double money=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
+        double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
         double allcost=0;
         checksize(allDataInterface.getIdofKnight(),knigthequip);
         if(!isExist(equipList.getelem(Id), knigthequip.get(allDataInterface.getIdofKnight()))) {
-            money-=equipList.getelem(Id).getCost();
-            if(money<=0)
-                return;
+            amountOfMoney1 -= equipList.getelem(Id).getCost();
+            if (amountOfMoney1 <= 0){
+                error.setText("Not enough noney");
+            return;
+            }
             knigthequip.get(allDataInterface.getIdofKnight()).addKnightEquipInterface(equipList.getelem(Id));
+            addedlist.setText(addedlist.getText()+"\n you add "+equipList.getelem(Id).getName());
             knigthequip.get(allDataInterface.getIdofKnight()).printList();
             allcost+=equipList.getelem(Id).getCost();
+            money.setText("Amount of money left - "+amountOfMoney1);
         }
         knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
         knightInfo.printList();
@@ -153,7 +175,7 @@ public class SelectEquipmentAppl implements Initializable {
     public boolean isExist(Equipment element,EquipList arrayList){
         for(int i=0;i< arrayList.getsize();i++){
             if(element.getTypeofarmour().equalsIgnoreCase(arrayList.getelem(i).getTypeofarmour())){
-                System.out.println("You already choose armor of this type,try again");
+                error.setText("You already choose armor of this type,try again");
                 return true;}
         }
         return false;
@@ -182,9 +204,11 @@ public class SelectEquipmentAppl implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Insert insert=new Insert();
         Loginlist loginlist=new Loginlist();
+        AllDataInterface.setKnightInfo(knightInfo);
         readData.readLogins(loginlist);
         insert.insertKnightEquipment(insert.userid(loginlist,AllDataInterface.getUser()),equipList,knigthequip);
         AllDataInterface.setKnightsEquip(knigthequip);
+        i=0;
         scene = new Scene(root);
         stage.setTitle("Menu of Action");
         stage.setScene(scene);

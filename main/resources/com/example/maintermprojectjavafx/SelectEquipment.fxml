@@ -39,5 +39,25 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="error" layoutX="507.0" layoutY="524.0" prefHeight="26.0" prefWidth="299.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="addedlist" alignment="TOP_CENTER" layoutX="806.0" layoutY="440.0" prefHeight="232.0" prefWidth="215.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="money" layoutX="715.0" layoutY="688.0" prefHeight="36.0" prefWidth="306.0">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="error1" layoutX="517.0" layoutY="534.0" prefHeight="26.0" prefWidth="299.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

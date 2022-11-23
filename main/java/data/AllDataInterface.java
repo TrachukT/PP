@@ -11,6 +11,7 @@ public class AllDataInterface {
     private static Login user;
     private static List<EquipList> knightsEquip;
     private static List<WeaponList> knightsWeapon;
+    private static KnightInfo knightInfo;
 
     public static Login getUser() {
         return user;
@@ -19,6 +20,15 @@ public class AllDataInterface {
     public static void setUser(Login user) {
         AllDataInterface.user = user;
     }
+
+    public static KnightInfo getKnightInfo() {
+        return knightInfo;
+    }
+
+    public static void setKnightInfo(KnightInfo knightInfo) {
+        AllDataInterface.knightInfo = knightInfo;
+    }
+
     public int getIdofWeapon() {
         return idofWeapon;
     }
@@ -35,7 +45,7 @@ public class AllDataInterface {
         idofEquipment = id;
     }
 
-    public List<EquipList> getKnightsEquip() {
+    public static List<EquipList> getKnightsEquip() {
         return knightsEquip;
     }
 

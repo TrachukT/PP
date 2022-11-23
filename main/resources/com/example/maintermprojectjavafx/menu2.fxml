@@ -32,7 +32,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="232.0" layoutY="299.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Build report">
+      <Button layoutX="232.0" layoutY="299.0" mnemonicParsing="false" onAction="#buttonBuildReport" prefHeight="31.0" prefWidth="164.0" text="Build report">
          <font>
             <Font size="16.0" />
          </font>
