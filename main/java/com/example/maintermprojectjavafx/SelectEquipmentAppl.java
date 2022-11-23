@@ -1,6 +1,7 @@
 package com.example.maintermprojectjavafx;
 
 import data.AllDataInterface;
+import data.EquipList;
 import data.KnightInfo;
 import database.ReadData;
 import equipment.Equipment;
@@ -22,6 +23,8 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SelectEquipmentAppl implements Initializable {
@@ -51,6 +54,20 @@ public class SelectEquipmentAppl implements Initializable {
     TextField nationalityText;
     @FXML
     TextField amountofmoneyText;
+    @FXML
+    private TableView<Equipment> EquipTable;
+    @FXML
+    private TableColumn<Equipment,String> nameEquip = new TableColumn<>();
+    @FXML
+    private TableColumn<Equipment,String> materialEquip = new TableColumn<>();
+    @FXML
+    private TableColumn<Equipment, Double> costEquip = new TableColumn<>();
+    @FXML
+    private TableColumn<Equipment, Double> weightEquip = new TableColumn<>();
+    @FXML
+    private TableColumn<Equipment, Double> strengthEquip = new TableColumn<>();
+    @FXML
+    private TableColumn<Equipment,String> typeofarmorEquip = new TableColumn<>();
     public void buttonGetData(ActionEvent event) throws  IOException{
         ReadData readData=new ReadData();
         ObservableList<Knight> equipment = readData.readKnightsInterface();
@@ -58,8 +75,8 @@ public class SelectEquipmentAppl implements Initializable {
     }
     public void buttonChooseKnight(ActionEvent event) throws  IOException{
         int IdW = knightsTable.getSelectionModel().getSelectedIndex();
-        allDataInterface.setIdofKnight(IdW);
-        System.out.println(allDataInterface.getIdofKnight());
+        this.allDataInterface.setIdofKnight(IdW);
+        System.out.println(this.allDataInterface.getIdofKnight());
         root = FXMLLoader.load(getClass().getResource("SelectEquipment.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -94,6 +111,19 @@ public class SelectEquipmentAppl implements Initializable {
         BackToSelectKnight(event);
         //buttonGetData(event);
     }
+    public void buttonGetDataEquipment(ActionEvent event) throws IOException{
+        ReadData readData=new ReadData();
+        ObservableList<Equipment> equipment = readData.readEquipForTable();
+        EquipTable.setItems(equipment);
+    }
+    public void chooseEquipment(ActionEvent event){
+        int Id = EquipTable.getSelectionModel().getSelectedIndex();
+        //allDataInterface.setIdofEquipment(Id);
+        List<EquipList> equipLists=new ArrayList<>();
+        System.out.println("\nfgfg\n"+this.allDataInterface.getIdofKnight());
+//        equipUpdateLabel.setVisible(true);
+//        costText.setVisible(true);
+    }
     public void buttonBackToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -110,5 +140,11 @@ public class SelectEquipmentAppl implements Initializable {
         century.setCellValueFactory(new PropertyValueFactory<Knight,Integer>("century"));
         nationality.setCellValueFactory(new PropertyValueFactory<Knight,String>("nationality"));
         amountOfMoney.setCellValueFactory(new PropertyValueFactory<Knight,Double>("amountOfMoney"));
+        nameEquip.setCellValueFactory(new PropertyValueFactory<Equipment,String>("name"));
+        materialEquip.setCellValueFactory(new PropertyValueFactory<Equipment,String>("material"));
+        costEquip.setCellValueFactory(new PropertyValueFactory<Equipment,Double>("cost"));
+        weightEquip.setCellValueFactory(new PropertyValueFactory<Equipment,Double>("weight"));
+        strengthEquip.setCellValueFactory(new PropertyValueFactory<Equipment,Double>("strength"));
+        typeofarmorEquip.setCellValueFactory(new PropertyValueFactory<Equipment,String>("typeofarmour"));
     }
 }

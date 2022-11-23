@@ -59,10 +59,10 @@ public class AllDataInterface {
     }
 
     public int getIdofKnight() {
-        return idofKnight;
+        return this.idofKnight;
     }
 
-    public void setIdofKnight(int idofKnight) {
-        this.idofKnight = idofKnight;
+    public void setIdofKnight(int id) {
+        this.idofKnight = id;
     }
 }
