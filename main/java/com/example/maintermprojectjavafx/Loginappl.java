@@ -1,5 +1,6 @@
 package com.example.maintermprojectjavafx;
 
+import data.AllDataInterface;
 import data.Login;
 import database.ReadData;
 import data.Loginlist;
@@ -30,6 +31,7 @@ public class Loginappl {
     TextField password;
     @FXML
     Label wronguser;
+    private AllDataInterface allDataInterface=new AllDataInterface();
 //    public void  switchLogin(ActionEvent event) throws IOException {
 //        root = FXMLLoader.load(getClass().getResource("login.fxml"));
 //        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -47,6 +49,7 @@ public class Loginappl {
         Login user=new Login(usernameText,passwordText,emailText);
         if(usersdata.finduser(user)) {
             error.setText("");
+            AllDataInterface.setUser(user);
             switchMenuOfActions(event);
         }
         else if (usersdata.checkpassword(user)){

@@ -269,13 +269,13 @@ public class ReadData {
         }
         return weaponList;
     }
-    public void readKnightsEquipment(Login user, Loginlist loginlist,KnightInfo knightlist,EquipList equipList,List<EquipList> knightsequipment){
+    public void readKnightsEquipment(int userID,KnightInfo knightlist,EquipList equipList,List<EquipList> knightsequipment){
         String query;
         Statement statement;
         ResultSet resultSet;
         double allcost=0.0;
         try {
-        query = String.format("select * from %s where userid = '%d'", "knightsequip",userid(loginlist,user));
+        query = String.format("select * from %s where userid = '%d'", "knightsequip",userID);
         statement = this.connection.createStatement();
         resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
@@ -291,13 +291,13 @@ public class ReadData {
         System.out.println("Read failed" + e);
         }
     }
-    public void readKnightsWeapon(Login user, Loginlist loginlist,KnightInfo knightlist,WeaponList weaponList,List<WeaponList> knightsweapon){
+    public void readKnightsWeapon(int userID,KnightInfo knightlist,WeaponList weaponList,List<WeaponList> knightsweapon){
         String query;
         Statement statement;
         ResultSet resultSet;
         //double allcost=0.0;
         try {
-            query = String.format("select * from %s where userid = '%d'", "knightsweapon",userid(loginlist,user));
+            query = String.format("select * from %s where userid = '%d'", "knightsweapon",userID);
             statement = this.connection.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {

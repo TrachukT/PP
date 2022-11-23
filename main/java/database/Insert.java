@@ -102,17 +102,17 @@ public class Insert {
             System.out.println("Insert failed\n"+e);
         }
     }
-    public void insertKnightEquipment(Loginlist loginlist, Login user, EquipList equipList, List<EquipList> knightsEquipment){
+    public void insertKnightEquipment(int userID, EquipList equipList, List<EquipList> knightsEquipment){
         Statement statement;
         int equipid;
         Delete delete=new Delete();
-        delete.deleteKnightsEquipment(userid(loginlist, user));
+        delete.deleteKnightsEquipment(userID);
         for(int i=0;i< knightsEquipment.size();i++){
             for(int k=0;k<knightsEquipment.get(i).getsize();k++) {
                 try {
                     String query;
                         equipid = findid(equipList, knightsEquipment.get(i).getelem(k));
-                        query = String.format(Locale.US, "insert into knightsequip(userid, knightid, equipmentid)  values('%d','%d','%d');", userid(loginlist, user), i + 1, equipid);
+                        query = String.format(Locale.US, "insert into knightsequip(userid, knightid, equipmentid)  values('%d','%d','%d');", userID, i + 1, equipid);
                         statement = this.connection.createStatement();
                         statement.executeUpdate(query);
                         System.out.println("Equipment inserted");

@@ -1,15 +1,24 @@
 package data;
 
+import database.ReadData;
+
 import java.util.List;
 
 public class AllDataInterface {
-    private int idofWeapon;
-    private int idofEquipment;
-    private int idofKnight;
-    private EquipList equipList;
-    private WeaponList weaponList;
-    private List<EquipList> knightsEquip;
-    private List<WeaponList> knightsWeapon;
+    private static int idofWeapon;
+    private static int idofEquipment;
+    private static int idofKnight;
+    private static Login user;
+    private static List<EquipList> knightsEquip;
+    private static List<WeaponList> knightsWeapon;
+
+    public static Login getUser() {
+        return user;
+    }
+
+    public static void setUser(Login user) {
+        AllDataInterface.user = user;
+    }
     public int getIdofWeapon() {
         return idofWeapon;
     }
@@ -26,27 +35,11 @@ public class AllDataInterface {
         idofEquipment = id;
     }
 
-    public EquipList getEquipList() {
-        return equipList;
-    }
-
-    public void setEquipList(EquipList equipList1) {
-        equipList = equipList1;
-    }
-
-    public WeaponList getWeaponList() {
-        return weaponList;
-    }
-
-    public void setWeaponList(WeaponList weaponList1) {
-        weaponList = weaponList1;
-    }
-
     public List<EquipList> getKnightsEquip() {
         return knightsEquip;
     }
 
-    public void setKnightsEquip(List<EquipList> knightsEquip1) {
+    public static void setKnightsEquip(List<EquipList> knightsEquip1) {
         knightsEquip = knightsEquip1;
     }
 
@@ -59,10 +52,10 @@ public class AllDataInterface {
     }
 
     public int getIdofKnight() {
-        return this.idofKnight;
+        return idofKnight;
     }
 
     public void setIdofKnight(int id) {
-        this.idofKnight = id;
+        idofKnight = id;
     }
 }

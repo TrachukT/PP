@@ -91,6 +91,9 @@ public class EquipList {
     public void addKnightEquip(Equipment element, int index){
         this.allequipment.add(index,element);
     }
+    public  void addKnightEquipInterface(Equipment element){
+        this.allequipment.add(element);
+    }
     public void insertEquipment(Equipment equipment){
         this.allequipment.add(this.allequipment.size(), equipment);
     }//запис з бд
