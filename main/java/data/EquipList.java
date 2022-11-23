@@ -41,6 +41,11 @@ public class EquipList {
         Update update=new Update();
         update.updateEquipment(i,cost);
     }
+    public void updateEquipmentInterface(int i,double cost){
+        this.allequipment.get(i).setCost(cost);
+        Update update=new Update();
+        update.updateEquipment(i,cost);
+    }
     public void enterAllEquipment() throws IOException {
         FileWriter writer = new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Equipment.txt");
         for(int k=0;k<allequipment.size();k++) {

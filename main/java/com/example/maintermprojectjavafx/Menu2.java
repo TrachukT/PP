@@ -32,6 +32,14 @@ public class Menu2 {
         stage.setScene(scene);
         stage.show();
     }
+    public void buttonSelectEquipment(ActionEvent event)throws  IOException{
+        root = FXMLLoader.load(getClass().getResource("SelectKnightforEquip.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Select knight");
+        stage.setScene(scene);
+        stage.show();
+    }
 //    public void switchExit(ActionEvent event) {
 //        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 //        alert.setTitle("Exit");

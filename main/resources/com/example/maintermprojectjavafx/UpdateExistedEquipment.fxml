@@ -8,25 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.UpdateEquipmentAppl">
    <children>
-      <Button layoutX="264.0" layoutY="516.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="172.0" text="Choose equipment ">
+      <Button layoutX="264.0" layoutY="516.0" mnemonicParsing="false" onAction="#chooseEquip" prefHeight="45.0" prefWidth="172.0" text="Choose equipment ">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="456.0" layoutY="516.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="172.0" text="Submit changes">
+      <Button layoutX="456.0" layoutY="516.0" mnemonicParsing="false" onAction="#SubmitUpdateEquip" prefHeight="45.0" prefWidth="172.0" text="Submit changes">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="313.0" layoutY="427.0" prefHeight="24.0" prefWidth="129.0" text="Enter new cost">
+      <Label fx:id="equipUpdateLabel" layoutX="313.0" layoutY="427.0" prefHeight="24.0" prefWidth="129.0" text="Enter new cost" visible="false">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="450.0" layoutY="421.0" prefHeight="35.0" prefWidth="183.0" />
+      <TextField fx:id="costText" layoutX="450.0" layoutY="421.0" prefHeight="35.0" prefWidth="183.0" visible="false" />
       <TableView fx:id="EquipTable" layoutX="34.0" layoutY="76.0" prefHeight="292.0" prefWidth="632.0">
         <columns>
           <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
@@ -37,15 +36,21 @@
             <TableColumn fx:id="typeofarmor" prefWidth="75.0" text="Type" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="538.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" text="Back">
+      <Button layoutX="14.0" layoutY="534.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" text="Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="101.0" layoutY="417.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="45.0" prefWidth="114.0" text="Get Data">
+      <Button layoutX="101.0" layoutY="417.0" mnemonicParsing="false" onAction="#buttonGetDataEquipment" prefHeight="45.0" prefWidth="114.0" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
+      <Label alignment="CENTER" layoutX="62.0" layoutY="28.0" prefHeight="24.0" prefWidth="576.0" text="Choose equipment you want to update and enter new cost">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="equipresult" layoutX="456.0" layoutY="492.0" prefHeight="17.0" prefWidth="172.0" />
    </children>
 </AnchorPane>

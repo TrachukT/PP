@@ -12,6 +12,8 @@ module com.example.maintermprojectjavafx {
     opens data to javafx.fxml;
     opens commands to javafx.fxml;
     opens equipment to javafx.fxml;
+    opens weapon to javafx.fxml;
+    exports weapon;
     exports equipment;
     exports knight;
     exports database;

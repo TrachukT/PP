@@ -58,6 +58,11 @@ public class WeaponList {
         Update update=new Update();
         update.updateWeapon(this.allweapon.get(i).getName(),this.allweapon.get(i).getType(),cost);
     }
+    public void updateWeaponInterface(int i,double cost){
+        this.allweapon.get(i).setCost(cost);
+        Update update=new Update();
+        update.updateWeapon(this.allweapon.get(i).getName(),this.allweapon.get(i).getType(),cost);
+    }
     public void addKnightWeapon(Weapon element, int index){
         this.allweapon.add(index,element);
     }
