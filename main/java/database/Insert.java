@@ -122,11 +122,11 @@ public class Insert {
             }
         }
     }
-    public void insertKnightsWeapon(Loginlist loginlist, Login user, WeaponList weaponList,List<WeaponList> knightsWeapon){
+    public void insertKnightsWeapon(int userID, WeaponList weaponList,List<WeaponList> knightsWeapon){
         Statement statement;
-        int equipid;
+        //int equipid;
         Delete delete=new Delete();
-        delete.deleteKnightsWeapon(userid(loginlist, user));
+        delete.deleteKnightsWeapon(userID);
         for(int i=0;i< knightsWeapon.size();i++){
             if(knightsWeapon.get(i).getsize()!=0){
                 String bow=weaponname(knightsWeapon.get(i),"bow");
@@ -137,7 +137,7 @@ public class Insert {
             //for(int k=0;k<knightsWeapon.get(i).getsize();k++) {
                 try {
                     String query;
-                    query = String.format(Locale.US, "insert into knightsweapon(userid, knightid, bow,axe,knife,sword,lance)  values('%d','%d','%s','%s','%s','%s','%s');", userid(loginlist, user), i + 1,bow,axe,knife,sword,lance);
+                    query = String.format(Locale.US, "insert into knightsweapon(userid, knightid, bow,axe,knife,sword,lance)  values('%d','%d','%s','%s','%s','%s','%s');", userID, i + 1,bow,axe,knife,sword,lance);
                     statement = this.connection.createStatement();
                     statement.executeUpdate(query);
                     System.out.println("Weapon inserted");
@@ -171,7 +171,7 @@ public class Insert {
                 return (count+1);
             }
         }
-        return 0;
+        return -1;
     }
 
 

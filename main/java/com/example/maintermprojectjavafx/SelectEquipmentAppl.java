@@ -43,7 +43,7 @@ public class SelectEquipmentAppl implements Initializable {
     private TableColumn<Knight,String> nationality = new TableColumn<>();
     @FXML
     private TableColumn<Knight,Double> amountOfMoney = new TableColumn<>();
-    private AllDataInterface allDataInterface =new AllDataInterface();;
+    private AllDataInterface allDataInterface =new AllDataInterface();
     @FXML
     TextField nameText;
     @FXML
@@ -202,13 +202,17 @@ public class SelectEquipmentAppl implements Initializable {
     public void buttonBackToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Insert insert=new Insert();
-        Loginlist loginlist=new Loginlist();
-        AllDataInterface.setKnightInfo(knightInfo);
-        readData.readLogins(loginlist);
-        insert.insertKnightEquipment(insert.userid(loginlist,AllDataInterface.getUser()),equipList,knigthequip);
-        AllDataInterface.setKnightsEquip(knigthequip);
-        i=0;
+        if(i!=0) {
+            Insert insert = new Insert();
+            Loginlist loginlist = new Loginlist();
+            AllDataInterface.setKnightInfo(knightInfo);
+            readData.readLogins(loginlist);
+            EquipList equipList1 = new EquipList();
+            readData.readEquip(equipList1);
+            insert.insertKnightEquipment(insert.userid(loginlist, AllDataInterface.getUser()), equipList1, knigthequip);
+            AllDataInterface.setKnightsEquip(knigthequip);
+            i = 0;
+        }
         scene = new Scene(root);
         stage.setTitle("Menu of Action");
         stage.setScene(scene);

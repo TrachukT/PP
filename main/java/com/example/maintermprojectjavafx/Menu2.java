@@ -38,6 +38,8 @@ public class Menu2 {
         scene = new Scene(root);
         stage.setTitle("Registration");
         stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
     }
     public void buttonSelectEquipment(ActionEvent event)throws  IOException{
@@ -48,25 +50,14 @@ public class Menu2 {
         stage.setScene(scene);
         stage.show();
     }
-//    public void switchExit(ActionEvent event) {
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Exit");
-//        alert.setContentText("Do you want to exit?");
-//        if(alert.showAndWait().get() == ButtonType.OK)
-//        {
-//            System.out.println("You are exited");
-//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.close();
-//        }
-//    }
-//    public void switchRegistration(ActionEvent event) throws IOException {
-//        root = FXMLLoader.load(getClass().getResource("registration.fxml"));
-//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setTitle("Registration");
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    public void buttonSelectWeapon(ActionEvent event)throws  IOException{
+        root = FXMLLoader.load(getClass().getResource("SelectKnightforWeapon.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Select knight");
+        stage.setScene(scene);
+        stage.show();
+    }
     public void buttonLogOut(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

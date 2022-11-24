@@ -59,7 +59,7 @@ public class Loginappl {
             error.setText("");
             AllDataInterface.setUser(user);
             readData.readKnightsEquipment(readData.userid(usersdata,user),knightInfo,equipList,knightsequip);
-            //readData.readKnightsWeapon(readData.userid(usersdata,user),knightInfo,weaponList,knightsweapon);
+            readData.readKnightsWeapon(readData.userid(usersdata,user),knightInfo,weaponList,knightsweapon);
             AllDataInterface.setKnightInfo(knightInfo);
             AllDataInterface.setKnightsEquip(knightsequip);
             switchMenuOfActions(event);

@@ -5,10 +5,17 @@ import database.Insert;
 import java.util.Scanner;
 
 public class Lance extends Weapon{
-    protected int lengthoflance;
+    private int lengthoflance;
     public Lance(String name,String type,double weight,double cost,double damage,int lengthoflance){
         super(name,type,weight,cost,damage);
         this.lengthoflance=lengthoflance;
+    }
+    public int getLengthoflance() {
+        return lengthoflance;
+    }
+
+    public void setLengthoflance(int lengthoflance) {
+        this.lengthoflance = lengthoflance;
     }
     public Lance(){
         super();

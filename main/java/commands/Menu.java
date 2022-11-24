@@ -84,7 +84,7 @@ public class Menu {
             report.add(report.size(),result);
             if(numberOfAction==5) {
                 insert.insertKnightEquipment(userid(userdata,chooseduser),allequip,knightsEquipment);
-                insert.insertKnightsWeapon(userdata,chooseduser,allWeapon,knightsWeapon);
+                insert.insertKnightsWeapon(readData.userid(userdata,chooseduser),allWeapon,knightsWeapon);
                 break;
             }
             printequip();

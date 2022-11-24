@@ -66,6 +66,7 @@ public class WeaponList {
     public void addKnightWeapon(Weapon element, int index){
         this.allweapon.add(index,element);
     }
+    public void addKnightWeaponInterface(Weapon element){ this.allweapon.add(element);}
     public void removeelem(int i){
         this.allweapon.remove(i);
     }

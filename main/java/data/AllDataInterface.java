@@ -2,6 +2,7 @@ package data;
 
 import database.ReadData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllDataInterface {
@@ -10,7 +11,7 @@ public class AllDataInterface {
     private static int idofKnight;
     private static Login user;
     private static List<EquipList> knightsEquip;
-    private static List<WeaponList> knightsWeapon;
+    private static List<WeaponList> knightsWeapon = new ArrayList<>();
     private static KnightInfo knightInfo;
 
     public static Login getUser() {
@@ -53,11 +54,11 @@ public class AllDataInterface {
         knightsEquip = knightsEquip1;
     }
 
-    public List<WeaponList> getKnightsWeapon() {
+    public static List<WeaponList> getKnightsWeapon() {
         return knightsWeapon;
     }
 
-    public void setKnightsWeapon(List<WeaponList> knightsWeapon1) {
+    public static void setKnightsWeapon(List<WeaponList> knightsWeapon1) {
         knightsWeapon = knightsWeapon1;
     }
 

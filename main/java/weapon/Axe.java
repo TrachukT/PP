@@ -5,11 +5,19 @@ import database.Insert;
 import java.util.Scanner;
 
 public class Axe extends Weapon{
-    protected String bladeshape;
+    private String bladeshape;
     public Axe(String name,String type,double weight,double cost,double damage,String bladeshape){
         super(name, type, weight, cost, damage);
         this.bladeshape=bladeshape;
     }
+    public String getBladeshape() {
+        return bladeshape;
+    }
+
+    public void setBladeshape(String bladeshape) {
+        this.bladeshape = bladeshape;
+    }
+
     public Axe(){
         super();
         this.type="Axe";
