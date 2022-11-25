@@ -22,7 +22,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="232.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Delete equipment">
+      <Button layoutX="232.0" layoutY="208.0" mnemonicParsing="false" onAction="#buttonDelete" prefHeight="31.0" prefWidth="164.0" text="Delete equipment">
          <font>
             <Font size="16.0" />
          </font>

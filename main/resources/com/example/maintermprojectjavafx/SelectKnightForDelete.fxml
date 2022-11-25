@@ -7,29 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="565.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectWeaponAppl">
+<AnchorPane prefHeight="557.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.DeleteEquipmentAppl">
    <children>
-      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" onAction="#buttonBackToMenu" prefHeight="52.0" prefWidth="89.0" text="Back">
+      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="89.0" text="Back">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" prefHeight="94.0" prefWidth="775.0" style="-fx-background-color: Lavender;" text="&#9;&#9;Welcome to Select Weapon for knight!&#10;Firstly select the knight from the table or add you own one">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" prefHeight="94.0" prefWidth="775.0" style="-fx-background-color: Lavender;" text="&#9;&#9;Welcome to Delete Weapon for knight!&#10;Firstly select the knight from the table">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="322.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonChooseKnight" prefHeight="58.0" prefWidth="147.0" text="Choose knight">
+      <Button layoutX="482.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonChooseKnight" prefHeight="58.0" prefWidth="147.0" text="Choose knight">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="521.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonAddKnight" prefHeight="58.0" prefWidth="147.0" text="Add own knight">
-         <font>
-            <Font name="Times New Roman" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="131.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="58.0" prefWidth="147.0" text="Get Data">
+      <Button layoutX="181.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="58.0" prefWidth="147.0" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>

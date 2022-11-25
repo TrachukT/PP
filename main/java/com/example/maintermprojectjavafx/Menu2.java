@@ -58,6 +58,14 @@ public class Menu2 {
         stage.setScene(scene);
         stage.show();
     }
+    public void buttonDelete(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("SelectKnightForDelete.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Select knight");
+        stage.setScene(scene);
+        stage.show();
+    }
     public void buttonLogOut(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

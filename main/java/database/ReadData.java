@@ -358,6 +358,63 @@ public class ReadData {
         System.out.println("Read failed" + e);
         }
     }
+    public ObservableList<Equipment> readKnightsEquipmentforDelete(int userID,int knightid,KnightInfo knightlist,EquipList equipList){
+        String query;
+        Statement statement;
+        ResultSet resultSet;
+        double allcost=0.0;
+        ObservableList<Equipment> equipmentObservableList=FXCollections.observableArrayList();
+        try {
+            query = String.format("select * from %s where userid = '%d' and knightid = '%d'", "knightsequip",userID,knightid+1);
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                allcost=0.0;
+                int equipmentid = resultSet.getInt("equipmentid")-1;
+                equipmentObservableList.add(equipList.getelem(equipmentid));
+                allcost+= equipList.getelem(equipmentid).getCost();
+                knightlist.cutMoney(knightid,allcost);
+            }
+        } catch (Exception e) {
+            System.out.println("Read failed" + e);
+        }
+        return  equipmentObservableList;
+    }
+    public ObservableList<Weapon> readKnightsWeaponforDelete(int userID,int knightid,KnightInfo knightlist,WeaponList weaponList){
+        String query;
+        Statement statement;
+        ResultSet resultSet;
+        //double allcost=0.0;
+        ObservableList<Weapon> weapons = FXCollections.observableArrayList();
+        try {
+            query = String.format("select * from %s where userid = '%d' and knightid = '%d'", "knightsweapon",userID,knightid+1);
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                weaponidInterface(weapons, weaponList, resultSet.getString("bow"), knightlist, knightid);
+                weaponidInterface(weapons, weaponList, resultSet.getString("axe"), knightlist, knightid);
+                weaponidInterface(weapons, weaponList, resultSet.getString("knife"), knightlist, knightid);
+                weaponidInterface(weapons, weaponList, resultSet.getString("sword"), knightlist, knightid);
+                weaponidInterface(weapons, weaponList, resultSet.getString("lance"), knightlist, knightid);
+            }
+        } catch (Exception e) {
+            System.out.println("Read failed" + e);
+        }
+        return weapons;
+    }
+    public void weaponidInterface(ObservableList<Weapon> knightsweapon,WeaponList weaponList,String name,KnightInfo knightlist,int knightid){
+        if(name.equalsIgnoreCase("NULL")){
+            return;
+        }
+        double allcost=0.0;
+        for(int count=0;count<weaponList.getsize();count++){
+            if(weaponList.getelem(count).getName().equals(name)){
+                knightsweapon.add(weaponList.getelem(count));
+                allcost+= weaponList.getelem(count).getCost();
+                knightlist.cutMoney(knightid,allcost);
+            }
+        }
+    }
     public ObservableList<Weapon> readWeaponForTable() {
         Statement statement;
         ResultSet resultSet;

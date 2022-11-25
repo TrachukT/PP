@@ -134,7 +134,6 @@ public class SelectWeaponAppl implements Initializable {
                 System.out.println(knightInfo.getknight(i).toString(i));
                 knightWeapon.get(i).printList();
             }
-            i++;
         }
     }
     public void buttonGetDataWeapons(ActionEvent event) throws IOException{
@@ -176,6 +175,7 @@ public class SelectWeaponAppl implements Initializable {
                 System.out.println(knightInfo.getknight(i).toString(i));
                 knightWeapon.get(i).printList();
             }
+            i++;
         }
         System.out.println(AllDataInterface.getUser());
         root = FXMLLoader.load(getClass().getResource("SelectWeapon.fxml"));
