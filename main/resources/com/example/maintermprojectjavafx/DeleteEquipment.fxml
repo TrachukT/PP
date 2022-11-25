@@ -39,7 +39,12 @@
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="458.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="224.0" text="Button" />
-      <Button layoutX="1141.0" layoutY="458.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="224.0" text="Button" />
+      <Button layoutX="211.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteEquipment" prefHeight="61.0" prefWidth="224.0" text="Delete equipment" />
+      <Button layoutX="1141.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteWeapon" prefHeight="61.0" prefWidth="224.0" text="Delete Weapon" />
+      <Button layoutX="33.0" layoutY="574.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="61.0" prefWidth="151.0" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

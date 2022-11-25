@@ -50,18 +50,20 @@ public class Loginappl {
         String usernameText = username.getText();
         String passwordText = password.getText();
         Loginlist usersdata = new Loginlist();
-        readData.readLogins(usersdata);
-        readData.readWeapon(weaponList);
-        readData.readEquip(equipList);
-        readData.readKnights(knightInfo);
         Login user=new Login(usernameText,passwordText,emailText);
+        readData.readLogins(usersdata);
         if(usersdata.finduser(user)) {
+            readData.readWeapon(weaponList);
+            readData.readEquip(equipList);
+            readData.readKnights(knightInfo);
             error.setText("");
             AllDataInterface.setUser(user);
             readData.readKnightsEquipment(readData.userid(usersdata,user),knightInfo,equipList,knightsequip);
             readData.readKnightsWeapon(readData.userid(usersdata,user),knightInfo,weaponList,knightsweapon);
             AllDataInterface.setKnightInfo(knightInfo);
             AllDataInterface.setKnightsEquip(knightsequip);
+            AllDataInterface.setKnightsWeapon(knightsweapon);
+            buildreport();
             switchMenuOfActions(event);
         }
         else if (usersdata.checkpassword(user)){
@@ -74,6 +76,16 @@ public class Loginappl {
             wronguser.setMinHeight(33);
             wronguser.setText("User with such data not registered.\nPlease press button \"Back\" and firstly register in the base");
             //switchBack(event);
+        }
+    }
+    public void buildreport(){
+        for(int i=0;i<knightInfo.getsize();i++){
+            System.out.println(knightInfo.getknight(i).toString(i));
+            if(knightsequip.get(i).getsize()!=0)
+                knightsequip.get(i).printList();
+            if(knightsweapon.get(i).getsize()!=0){
+                knightsweapon.get(i).printList();
+            }
         }
     }
     public void switchMenuOfActions(ActionEvent event) throws IOException{

@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="557.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.DeleteEquipmentAppl">
    <children>
-      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="89.0" text="Back">
+      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" onAction="#buttonBackToMenu" prefHeight="52.0" prefWidth="89.0" text="Back">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
