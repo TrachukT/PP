@@ -40,11 +40,11 @@ public class Loginappl {
 //        stage.setScene(scene);
 //    }
     private ReadData readData=new ReadData();
-    private static List<EquipList> knightsequip=new ArrayList<>();
-    private static List<WeaponList> knightsweapon = new ArrayList<>();
-    private static KnightInfo knightInfo=new KnightInfo();
-    private  static EquipList equipList=new EquipList();
-    private static WeaponList weaponList=new WeaponList();
+    private List<EquipList> knightsequip=new ArrayList<>();
+    private List<WeaponList> knightsweapon = new ArrayList<>();
+    private KnightInfo knightInfo=new KnightInfo();
+    private EquipList equipList=new EquipList();
+    private WeaponList weaponList=new WeaponList();
     public void switchSubmit(ActionEvent  event) throws IOException {
         String emailText = email.getText();
         String usernameText = username.getText();
@@ -63,7 +63,7 @@ public class Loginappl {
             AllDataInterface.setKnightInfo(knightInfo);
             AllDataInterface.setKnightsEquip(knightsequip);
             AllDataInterface.setKnightsWeapon(knightsweapon);
-            buildreport();
+            //buildreport();
             switchMenuOfActions(event);
         }
         else if (usersdata.checkpassword(user)){
@@ -78,16 +78,16 @@ public class Loginappl {
             //switchBack(event);
         }
     }
-    public void buildreport(){
-        for(int i=0;i<knightInfo.getsize();i++){
-            System.out.println(knightInfo.getknight(i).toString(i));
-            if(knightsequip.get(i).getsize()!=0)
-                knightsequip.get(i).printList();
-            if(knightsweapon.get(i).getsize()!=0){
-                knightsweapon.get(i).printList();
-            }
-        }
-    }
+//    public void buildreport(){
+//        for(int i=0;i<knightInfo.getsize();i++){
+//            System.out.println(knightInfo.getknight(i).toString(i));
+//            if(knightsequip.get(i).getsize()!=0)
+//                knightsequip.get(i).printList();
+//            if(knightsweapon.get(i).getsize()!=0){
+//                knightsweapon.get(i).printList();
+//            }
+//        }
+//    }
     public void switchMenuOfActions(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -99,10 +99,13 @@ public class SelectEquipmentAppl implements Initializable {
         System.out.println(this.allDataInterface.getIdofKnight());
         //Idknight=IdW;
         //System.out.println(Idknight);
+        if(IdW==-1){
+            return;
+        }
         if(knightInfo.getsize()==0) {
             readData.readKnights(knightInfo);
         }
-        if(knigthequip.size()==0){
+        if(i==0){
             Loginlist loginlist=new Loginlist();
             readData.readLogins(loginlist);
             readData.readKnightsEquipment(readData.userid(loginlist,AllDataInterface.getUser()),knightInfo,equipList,knigthequip);
@@ -168,6 +171,7 @@ public class SelectEquipmentAppl implements Initializable {
             knigthequip.get(allDataInterface.getIdofKnight()).printList();
             allcost+=equipList.getelem(Id).getCost();
             money.setText("Amount of money left - "+amountOfMoney1);
+            i++;
         }
         knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
         knightInfo.printList();
@@ -211,8 +215,8 @@ public class SelectEquipmentAppl implements Initializable {
             readData.readEquip(equipList1);
             insert.insertKnightEquipment(insert.userid(loginlist, AllDataInterface.getUser()), equipList1, knigthequip);
             AllDataInterface.setKnightsEquip(knigthequip);
-            i = 0;
         }
+        i=0;
         scene = new Scene(root);
         stage.setTitle("Menu of Action");
         stage.setScene(scene);

@@ -1,5 +1,10 @@
 package com.example.maintermprojectjavafx;
 
+import data.AllDataInterface;
+import data.EquipList;
+import data.KnightInfo;
+import data.WeaponList;
+import database.ReadData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +15,8 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Menu2 {
     private Stage stage;
@@ -67,6 +74,12 @@ public class Menu2 {
         stage.show();
     }
     public void buttonLogOut(ActionEvent event) throws IOException {
+        KnightInfo knightInfo=new KnightInfo();
+        AllDataInterface.setKnightInfo(knightInfo);
+        List<EquipList> knightequip = new ArrayList<>();
+        AllDataInterface.setKnightsEquip(knightequip);
+        List<WeaponList> knightweapon = new ArrayList<>();
+        AllDataInterface.setKnightsWeapon(knightweapon);
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
