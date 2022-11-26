@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="499.0" prefWidth="701.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.Menu2">
+   <children>
+      <Button layoutX="254.0" layoutY="97.0" mnemonicParsing="false" onAction="#buttonSelectEquipment" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Select equipment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttonSelectWeapon" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Select weapon">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="206.0" mnemonicParsing="false" onAction="#buttonAddEquipment" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Add equipment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="259.0" mnemonicParsing="false" onAction="#buttonDelete" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Delete equipment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="314.0" mnemonicParsing="false" onAction="#buttonUpdateEquipment" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Update equipment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="373.0" mnemonicParsing="false" onAction="#buttonBuildReport" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Build report">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="254.0" layoutY="429.0" mnemonicParsing="false" onAction="#buttonLogOut" prefHeight="41.0" prefWidth="193.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Log out">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-2.0" prefHeight="76.0" prefWidth="701.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Welcome to the Menu of actions.Choose what you want to do">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,16 +1,31 @@
 package weapon;
 
-import Database.Insert;
+import database.Insert;
 
 import java.util.Scanner;
 
 public class Bow extends Weapon{
-    protected int amOfArrows;
-    protected String typeOfBowstring;
+    private int amOfArrows;
+    private String typeOfBowstring;
     public Bow(String name,String type,double weight,double cost,double damage,int amofarrows,String typeofbowstring){
         super(name,type,weight,cost,damage);
         this.amOfArrows = amofarrows;
         this.typeOfBowstring = typeofbowstring;
+    }
+    public int getAmOfArrows() {
+        return amOfArrows;
+    }
+
+    public void setAmOfArrows(int amOfArrows) {
+        this.amOfArrows = amOfArrows;
+    }
+
+    public String getTypeOfBowstring() {
+        return typeOfBowstring;
+    }
+
+    public void setTypeOfBowstring(String typeOfBowstring) {
+        this.typeOfBowstring = typeOfBowstring;
     }
     public Bow(){
         super();

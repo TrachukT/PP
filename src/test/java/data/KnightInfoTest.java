@@ -1,4 +1,5 @@
 package data;
+import database.ReadData;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -13,9 +14,10 @@ import static org.junit.Assert.assertTrue;
 public class KnightInfoTest {
     @Mock
     private static KnightInfo knights=new KnightInfo();
+    static ReadData readData=new ReadData();
     @BeforeClass
     public static void  enter(){
-        knights.setKnights();
+        readData.readKnights(knights);
     }
     public boolean IsEmpt(KnightInfo knights){
         if(knights.getsize()==0)
@@ -47,17 +49,17 @@ public class KnightInfoTest {
         knights.addMoney(1,40.05);
         assertTrue(Isequals(m+40.05,knights.getknight(1).getAmountOfMoney()));
     }
-    @Test
-    public void addKnightTest(){
-        String simulatedUserInput = "fllkl" +  System.getProperty("line.separator")
-                +"18" +  System.getProperty("line.separator")
-                +"15" +  System.getProperty("line.separator")
-                +"judas" +  System.getProperty("line.separator")
-                +"1900" +  System.getProperty("line.separator");
-        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
-        Scanner scanner=new Scanner(System.in);
-        knights.addKnight(scanner);
-    }
+//    @Test
+//    public void addKnightTest(){
+//        String simulatedUserInput = "fllkl" +  System.getProperty("line.separator")
+//                +"18" +  System.getProperty("line.separator")
+//                +"15" +  System.getProperty("line.separator")
+//                +"judas" +  System.getProperty("line.separator")
+//                +"1900" +  System.getProperty("line.separator");
+//        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
+//        Scanner scanner=new Scanner(System.in);
+//        knights.addKnight(scanner);
+//    }
 
 
 }

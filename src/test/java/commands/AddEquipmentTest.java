@@ -2,6 +2,7 @@ package commands;
 import data.EquipList;
 import data.KnightInfo;
 import data.WeaponList;
+import database.ReadData;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -14,7 +15,8 @@ public class AddEquipmentTest {
     private WeaponList weaponLists=new WeaponList();
     @Test
     public void addEquipment(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.arrayOfAll();
         String simulatedUserInput = "5" +  System.getProperty("line.separator");
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));

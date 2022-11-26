@@ -1,8 +1,13 @@
 package commands;
 
+import data.Login;
+import data.Loginlist;
+import database.ReadData;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuTest {
     @Test
@@ -19,6 +24,9 @@ public class MenuTest {
         +"5" +System.getProperty("line.separator");
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Menu menu=new Menu();
-        menu.menuOfEquipment();
+        Loginlist loginlist=new Loginlist();
+        ReadData readData=new ReadData();
+        readData.readLogins(loginlist);
+        menu.menuOfEquipment(loginlist.getelem(3),loginlist);
     }
 }

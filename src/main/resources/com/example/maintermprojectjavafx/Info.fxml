@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.MainMenu">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="&#9;&#9;&#9;Welcome to info&#10;Here is the main information about our program:">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font></Label>
+      <Label fx:id="information" layoutX="16.0" layoutY="104.0" prefHeight="177.0" prefWidth="571.0" text="&#10;This program called Knights and  it`s specified on choosing all equipment&#10;and weapon for yor knights. After enter your login,or registration&#10;in the base,you can select and equipment and weapon for the existing &#10;knights,create new weapon and equipment,update or delete existed ones.&#10;Have a great time!">
+         <font>
+            <Font name="Times New Roman" size="19.0" />
+         </font></Label>
+      <Button alignment="TOP_CENTER" layoutX="252.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

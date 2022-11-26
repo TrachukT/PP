@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="790.0" prefWidth="1607.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectWeaponAppl">
+   <children>
+      <Label alignment="CENTER" prefHeight="89.0" prefWidth="1607.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Select Weapon. Remember,you can only choose one equipment of each type">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="34.0" layoutY="709.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="60.0" prefWidth="107.0" style="-fx-background-color: #90EE90;" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="643.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonGetDataWeapons" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="201.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseSword" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Sword">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1144.0" layoutY="562.0" mnemonicParsing="false" onAction="#buttonChooseLance" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Lance">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="673.0" layoutY="720.0" mnemonicParsing="false" onAction="#buttonChooseBow" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90;" text="Choose Bow">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1144.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseKnife" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Knife">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <TableView fx:id="SwordTable" layoutX="14.0" layoutY="101.0" prefHeight="164.0" prefWidth="562.0">
+        <columns>
+          <TableColumn fx:id="swordName" prefWidth="125.0" text="Name" />
+          <TableColumn fx:id="swordType" prefWidth="73.0" text="Type" />
+            <TableColumn fx:id="swordWeight" prefWidth="77.0" text="Weight" />
+            <TableColumn fx:id="swordCost" prefWidth="77.0" text="Cost" />
+            <TableColumn fx:id="swordDamage" prefWidth="74.0" text="Damage" />
+            <TableColumn fx:id="swordblade" prefWidth="135.0" text="Sword blade" />
+        </columns>
+      </TableView>
+      <TableView fx:id="BowTable" layoutX="408.0" layoutY="545.0" prefHeight="164.0" prefWidth="686.0">
+         <columns>
+            <TableColumn fx:id="bowName" prefWidth="147.0" text="Name" />
+            <TableColumn fx:id="bowType" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="bowWeight" prefWidth="81.0" text="Weight" />
+            <TableColumn fx:id="bowCost" prefWidth="74.0" text="Cost" />
+            <TableColumn fx:id="bowDamage" prefWidth="71.0" text="Damage" />
+            <TableColumn fx:id="bowAmountOfArrows" prefWidth="114.0" text="Amount of arrows" />
+            <TableColumn fx:id="bowTypeOfBowstring" prefWidth="122.0" text="Type of bow string" />
+         </columns>
+      </TableView>
+      <TableView fx:id="LanceTable" layoutX="941.0" layoutY="356.0" prefHeight="164.0" prefWidth="562.0">
+         <columns>
+            <TableColumn fx:id="lanceName" prefWidth="138.0" text="Name" />
+            <TableColumn fx:id="lanceType" prefWidth="72.0" text="Type" />
+            <TableColumn fx:id="lanceWeight" prefWidth="93.0" text="Weight" />
+            <TableColumn fx:id="lanceCost" prefWidth="87.0" text="Cost" />
+            <TableColumn fx:id="lanceDamage" prefWidth="72.0" text="Damage" />
+            <TableColumn fx:id="lancelength" prefWidth="99.0" text="Length of lance" />
+         </columns>
+      </TableView>
+      <TableView fx:id="KnifeTable" layoutX="941.0" layoutY="101.0" prefHeight="164.0" prefWidth="562.0">
+         <columns>
+            <TableColumn fx:id="knifeName" prefWidth="146.0" text="Name" />
+            <TableColumn fx:id="knifeTypeOfWeapon" prefWidth="85.0" text="Type" />
+            <TableColumn fx:id="knifeWeight" prefWidth="76.0" text="Weight" />
+            <TableColumn fx:id="knifeCost" prefWidth="66.0" text="Cost" />
+            <TableColumn fx:id="knifeDamage" prefWidth="79.0" text="Damage" />
+            <TableColumn fx:id="typeOfKnife" prefWidth="109.0" text="Type of knife" />
+         </columns>
+      </TableView>
+      <TableView fx:id="AxeTable" layoutX="14.0" layoutY="356.0" prefHeight="164.0" prefWidth="562.0">
+         <columns>
+            <TableColumn fx:id="axeName" prefWidth="126.0" text="Name" />
+            <TableColumn fx:id="axeType" minWidth="0.0" prefWidth="64.0" text="Type" />
+            <TableColumn fx:id="axeWeight" text="Weight" />
+            <TableColumn fx:id="axeCost" prefWidth="75.0" text="Cost" />
+            <TableColumn fx:id="axeDamage" prefWidth="78.0" text="Damage" />
+            <TableColumn fx:id="axeblade" prefWidth="137.0" text="Shape of blade" />
+         </columns>
+      </TableView>
+      <Button layoutX="201.0" layoutY="535.0" mnemonicParsing="false" onAction="#buttonChooseAxe" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Axe">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="error" layoutX="578.0" layoutY="152.0" prefHeight="24.0" prefWidth="345.0" />
+      <Label fx:id="chooseBow" layoutX="869.0" layoutY="731.0" prefHeight="30.0" prefWidth="410.0" />
+      <Label fx:id="money" layoutX="579.0" layoutY="341.0" prefHeight="30.0" prefWidth="345.0" />
+      <Label fx:id="chooseSword" layoutX="374.0" layoutY="289.0" prefHeight="24.0" prefWidth="262.0" />
+      <Label fx:id="chooseKnife" layoutX="1323.0" layoutY="289.0" prefHeight="24.0" prefWidth="274.0" />
+      <Label fx:id="chooseLance" layoutX="1321.0" layoutY="553.0" prefHeight="24.0" prefWidth="274.0" />
+      <Label fx:id="chooseAxe" layoutX="20.0" layoutY="545.0" prefHeight="30.0" prefWidth="171.0" />
+   </children>
+</AnchorPane>

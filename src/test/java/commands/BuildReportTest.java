@@ -3,6 +3,7 @@ package commands;
 import data.EquipList;
 import data.KnightInfo;
 import data.WeaponList;
+import database.ReadData;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -25,14 +26,16 @@ public class BuildReportTest {
     @Test
     public void testReportsucces() throws IOException {
         result=new ResultOfCommand<String>("Succeeded","Build report works",true);
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         BuildReport report=new BuildReport(knight,equipLists,weaponLists);
         assertEquals(result.Result(),report.execute().Result());
     }
     @Test
     public void testReportsuccesequip() throws IOException {
         result=new ResultOfCommand<String>("Succeeded","Build report works",true);
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.add(0,new EquipList());
         equipLists.get(0).arrayOfAll();
         BuildReport report=new BuildReport(knight,equipLists,weaponLists);
@@ -41,7 +44,8 @@ public class BuildReportTest {
     @Test
     public void testReportsuccesequipandweapon() throws IOException {
         result=new ResultOfCommand<String>("Succeeded","Build report works",true);
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.add(0,new EquipList());
         equipLists.get(0).arrayOfAll();
         weaponLists.add(0,new WeaponList());

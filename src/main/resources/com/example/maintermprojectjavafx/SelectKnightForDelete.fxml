@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="779.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.DeleteEquipmentAppl">
+   <children>
+      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" onAction="#buttonBackToMenu" prefHeight="52.0" prefWidth="89.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="94.0" prefWidth="779.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Welcome to Delete Weapon for knight!&#10;Firstly select the knight from the table">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="482.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonChooseKnight" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose knight">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="181.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <TableView fx:id="knightTableView" layoutX="96.0" layoutY="138.0" prefHeight="262.0" prefWidth="608.0">
+         <columns>
+            <TableColumn fx:id="name" prefWidth="148.0" text="Name" />
+            <TableColumn fx:id="age" prefWidth="82.0" text="Age" />
+            <TableColumn fx:id="century" prefWidth="82.0" text="Century" />
+            <TableColumn fx:id="nationality" prefWidth="148.0" text="Nationality" />
+            <TableColumn fx:id="amountOfMoney" prefWidth="146.0" text="Amount of money" />
+         </columns>
+      </TableView>
+      <Label fx:id="knighterror" layoutX="187.0" layoutY="410.0" prefHeight="23.0" prefWidth="452.0" />
+   </children>
+</AnchorPane>

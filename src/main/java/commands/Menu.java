@@ -1,7 +1,7 @@
 package commands;
 
-import Database.Insert;
-import Database.ReadData;
+import database.Insert;
+import database.ReadData;
 import data.*;
 
 import java.io.FileWriter;
@@ -63,9 +63,9 @@ public class Menu {
         readData.readKnights(listknights);
         listknights.printList();
         List<EquipList> knightsEquipment=new ArrayList<>();
-        readData.readKnightsEquipment(chooseduser,userdata,listknights,allequip,knightsEquipment);
+        readData.readKnightsEquipment(userid(userdata,chooseduser),listknights,allequip,knightsEquipment);
         List<WeaponList> knightsWeapon=new ArrayList<>();
-        readData.readKnightsWeapon(chooseduser,userdata,listknights,allWeapon,knightsWeapon);
+        readData.readKnightsWeapon(userid(userdata,chooseduser),listknights,allWeapon,knightsWeapon);
         printequip();
         Map<Integer, Commands> equipment=new HashMap<>();
         equipment.put(1,new SelectEquipment(listknights,allequip,knightsEquipment));
@@ -83,14 +83,23 @@ public class Menu {
             dates.add(report.size(),new Date(time));
             report.add(report.size(),result);
             if(numberOfAction==5) {
-                insert.insertKnightEquipment(userdata,chooseduser,allequip,knightsEquipment);
-                insert.insertKnightsWeapon(userdata,chooseduser,allWeapon,knightsWeapon);
+                insert.insertKnightEquipment(userid(userdata,chooseduser),allequip,knightsEquipment);
+                insert.insertKnightsWeapon(readData.userid(userdata,chooseduser),allWeapon,knightsWeapon);
                 break;
             }
             printequip();
             numberOfAction = scan.nextInt();
         }
         allequip.enterAllEquipment();
+    }
+    public int userid(Loginlist loginlist, Login user){
+        int count=0;
+        for(;count<loginlist.getsize();count++){
+            if(loginlist.getelem(count).getName().equals(user.getName())&& loginlist.getelem(count).getMail().equals(user.getMail())){
+                return (count+1);
+            }
+        }
+        return 0;
     }
     public void enterreport() throws IOException {
         FileWriter writer=new FileWriter("C:\\Users\\38098\\lr7\\src\\main\\resources\\Report.txt");

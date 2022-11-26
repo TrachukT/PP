@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1476.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.BuildReportAppl">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="-5.0" prefHeight="87.0" prefWidth="1482.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Report about your knights,It`s equipment and it`s weapon">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="631.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBuildReport" prefHeight="49.0" prefWidth="167.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="BuildReport">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="109.0" layoutY="94.0" prefHeight="502.0" prefWidth="1250.0">
+         <content>
+            <VBox prefHeight="521.0" prefWidth="1239.0">
+               <children>
+                  <Label fx:id="report" alignment="TOP_LEFT" prefHeight="510.0" prefWidth="1237.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Button layoutX="41.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="49.0" prefWidth="167.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back to menu">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

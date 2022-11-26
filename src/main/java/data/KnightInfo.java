@@ -1,5 +1,5 @@
 package data;
-import Database.Update;
+import database.Insert;
 import knight.Knight;
 
 import java.util.ArrayList;
@@ -59,6 +59,11 @@ public class KnightInfo {
     public void addKnight(){
         this.arrayList.add(arrayList.size(),new Knight());
     }//запис нового лицаря
+    public void  addKnightInterface(String name,int age,int century,String nationality,double amountofmoney){
+        this.arrayList.add(this.arrayList.size(),new Knight(name, age, century, nationality, amountofmoney));
+        Insert insert=new Insert();
+        insert.insertKnight(name, age, century, nationality, amountofmoney);
+    }
     public Knight getknight(int i){
         return this.arrayList.get(i);
     }

@@ -1,5 +1,5 @@
 package knight;
-import Database.Insert;
+import database.Insert;
 
 import java.util.Scanner;
 public class Knight {
@@ -9,7 +9,6 @@ public class Knight {
     private int century ;
     private String nationality;
     private double amountOfMoney;
-
     public Knight(String name, int age, int century, String nationality,double amountOfMoney) {
         this.name = name;
         this.age = age;

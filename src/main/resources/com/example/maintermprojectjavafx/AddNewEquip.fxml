@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.AddEquipmentAppl">
+   <children>
+      <Button layoutX="274.0" layoutY="340.0" mnemonicParsing="false" onAction="#addEquipmentSubmit" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="29.0" layoutY="343.0" mnemonicParsing="false" onAction="#buttonBackFromAdding" prefHeight="33.0" prefWidth="88.0" text="Back" />
+      <Label alignment="CENTER" layoutX="231.0" layoutY="24.0" text="Add new equipment ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="68.0" text="Enter the name of equipment">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="109.0" prefHeight="17.0" prefWidth="156.0" text="Material">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="143.0" prefHeight="17.0" prefWidth="156.0" text="Cost">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="184.0" prefHeight="8.0" prefWidth="156.0" text="Weight">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="218.0" prefHeight="17.0" prefWidth="156.0" text="Strength">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="257.0" prefHeight="17.0" prefWidth="156.0" text="Type of armour">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="240.0" layoutY="65.0" />
+      <TextField fx:id="material" layoutX="240.0" layoutY="105.0" />
+      <TextField fx:id="cost" layoutX="240.0" layoutY="139.0" />
+      <TextField fx:id="weight" layoutX="240.0" layoutY="180.0" />
+      <TextField fx:id="strength" layoutX="240.0" layoutY="214.0" />
+      <TextField fx:id="typeOfArmour" layoutX="240.0" layoutY="253.0" />
+      <Label fx:id="Information" alignment="CENTER" layoutX="203.0" layoutY="301.0" prefHeight="20.0" prefWidth="223.0" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

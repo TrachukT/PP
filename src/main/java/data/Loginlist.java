@@ -1,12 +1,10 @@
 package data;
 
-import Database.Insert;
+import database.Insert;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Loginlist {
     private ArrayList<Login> logins=new ArrayList<>();
@@ -46,6 +44,23 @@ public class Loginlist {
                 return false;
         }
         return true;
+    }
+    public boolean checkUsername(String username,String mail){
+        for(int i=0;i<logins.size();i++){
+            if(username.equalsIgnoreCase(logins.get(i).getName()) && !(mail.equalsIgnoreCase(logins.get(i).getMail())))
+                return false;
+        }
+        return true;
+    }
+    public boolean checkpassword(Login user){
+        for(int i=0;i<logins.size();i++){
+            if(user.getMail().equalsIgnoreCase(logins.get(i).getMail()) && user.getName().equalsIgnoreCase(logins.get(i).getName()) && !(user.getPassword().equalsIgnoreCase(logins.get(i).getPassword()))){
+                //System.out.println("Log in succeeded");
+                return true;
+            }
+        }
+        //System.out.println("Log in failed");
+        return false;
     }
     public Login getelem(int i){
         return this.logins.get(i);

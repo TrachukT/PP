@@ -3,6 +3,7 @@ package commands;
 import data.EquipList;
 import data.KnightInfo;
 import data.WeaponList;
+import database.ReadData;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -22,7 +23,8 @@ public class DeleteTest {
     }
     @Test
     public void deleteTestEquip(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.add(0,new EquipList());
         equipLists.get(0).arrayOfAll();
         String simulatedUserInput = "0" +  System.getProperty("line.separator")
@@ -35,7 +37,8 @@ public class DeleteTest {
     }
     @Test
     public void deleteTestWeapon(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         weaponLists.add(0,new WeaponList());
         weaponLists.get(0).setAllweapon();
         String simulatedUserInput = "0" +  System.getProperty("line.separator")
@@ -48,7 +51,8 @@ public class DeleteTest {
     }
     @Test
     public void deleteTestWeaponOutOfRange(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         weaponLists.add(0,new WeaponList());
         weaponLists.get(0).setAllweapon();
         String simulatedUserInput = "0" +  System.getProperty("line.separator")
@@ -61,7 +65,8 @@ public class DeleteTest {
     }
     @Test
     public void deleteTestEquipOutOfRange(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.add(0,new EquipList());
         equipLists.get(0).arrayOfAll();
         String simulatedUserInput = "0" +  System.getProperty("line.separator")
@@ -74,7 +79,8 @@ public class DeleteTest {
     }
     @Test
     public void deleteTestWrongNumber(){
-        knight.setKnights();
+        ReadData readData=new ReadData();
+        readData.readKnights(knight);
         equipLists.add(0,new EquipList());
         equipLists.get(0).arrayOfAll();
         String simulatedUserInput = "0" +  System.getProperty("line.separator")
