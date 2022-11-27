@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1476.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.BuildReportAppl">
    <children>
-      <Label alignment="CENTER" layoutX="-1.0" layoutY="-5.0" prefHeight="87.0" prefWidth="1482.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Report about your knights,It`s equipment and it`s weapon">
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="-5.0" prefHeight="87.0" prefWidth="1482.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Report about your knights,It`s equipment and it`s weapon">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="631.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBuildReport" prefHeight="49.0" prefWidth="167.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="BuildReport">
+      <Button layoutX="631.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBuildReport" prefHeight="49.0" prefWidth="167.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="BuildReport">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
@@ -32,7 +32,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button layoutX="41.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="49.0" prefWidth="167.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back to menu">
+      <Button layoutX="41.0" layoutY="633.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="49.0" prefWidth="184.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back to menu">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>

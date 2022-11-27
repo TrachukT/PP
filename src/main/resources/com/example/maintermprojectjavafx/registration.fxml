@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.RegistrationAppl">
    <children>
-      <Button layoutX="169.0" layoutY="315.0" mnemonicParsing="false" onAction="#ButtonRegister" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Register">
+      <Button layoutX="169.0" layoutY="315.0" mnemonicParsing="false" onAction="#ButtonRegister" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Register">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="324.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="38.0" prefWidth="131.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back to menu">
+      <Button layoutX="324.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="38.0" prefWidth="131.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back to menu">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
@@ -24,7 +24,7 @@
       <Label layoutX="72.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Password" />
       <TextField fx:id="email" layoutX="237.0" layoutY="106.0" prefHeight="26.0" prefWidth="150.0" />
       <TextField fx:id="username" layoutX="237.0" layoutY="168.0" prefHeight="26.0" prefWidth="150.0" />
-      <Label alignment="CENTER" prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Welcome to registration. Create new account">
+      <Label alignment="CENTER" prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Welcome to registration. Create new account">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font></Label>

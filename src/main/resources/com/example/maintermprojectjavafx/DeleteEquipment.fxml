@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="660.0" prefWidth="1393.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.DeleteEquipmentAppl">
    <children>
-      <Label alignment="CENTER" layoutX="3.0" prefHeight="89.0" prefWidth="1607.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Select Weapon or Equipment from the list you eant to delete">
+      <Label alignment="CENTER" layoutX="3.0" prefHeight="89.0" prefWidth="1607.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Select Weapon or Equipment from the list you eant to delete">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
@@ -33,20 +33,20 @@
             <TableColumn fx:id="damage" prefWidth="111.0" text="Damage" />
          </columns>
       </TableView>
-      <Button layoutX="695.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonGetDeleteData" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="695.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonGetDeleteData" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteEquipment" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Delete equipment">
+      <Button layoutX="211.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteEquipment" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Delete equipment">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font></Button>
-      <Button layoutX="1141.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteWeapon" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Delete Weapon">
+      <Button layoutX="1141.0" layoutY="458.0" mnemonicParsing="false" onAction="#buttonDeleteWeapon" prefHeight="61.0" prefWidth="224.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Delete Weapon">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font></Button>
-      <Button layoutX="33.0" layoutY="574.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="61.0" prefWidth="151.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="33.0" layoutY="574.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="61.0" prefWidth="151.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>

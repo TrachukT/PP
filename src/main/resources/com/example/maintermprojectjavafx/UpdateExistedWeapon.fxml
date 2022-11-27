@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="536.0" prefWidth="740.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.UpdateEquipmentAppl">
    <children>
-      <Button layoutX="285.0" layoutY="465.0" mnemonicParsing="false" onAction="#chooseWeapon" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose weapon">
+      <Button layoutX="285.0" layoutY="465.0" mnemonicParsing="false" onAction="#chooseWeapon" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose weapon">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="470.0" layoutY="465.0" mnemonicParsing="false" onAction="#SubmitUpdateWeapon" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Submit changes">
+      <Button layoutX="470.0" layoutY="465.0" mnemonicParsing="false" onAction="#SubmitUpdateWeapon" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Submit changes">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
@@ -35,17 +35,17 @@
             <TableColumn fx:id="damage" prefWidth="112.0" text="Damage" />
          </columns>
       </TableView>
-      <Button layoutX="27.0" layoutY="460.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="27.0" layoutY="460.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="120.0" layoutY="388.0" mnemonicParsing="false" onAction="#buttonGetDataWeapon" prefHeight="45.0" prefWidth="114.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="120.0" layoutY="388.0" mnemonicParsing="false" onAction="#buttonGetDataWeapon" prefHeight="45.0" prefWidth="114.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="-3.0" layoutY="-6.0" prefHeight="74.0" prefWidth="747.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Choose weapon you want to update and enter new cost">
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="-6.0" prefHeight="74.0" prefWidth="747.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Choose weapon you want to update and enter new cost">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>

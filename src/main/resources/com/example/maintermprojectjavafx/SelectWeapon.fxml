@@ -9,37 +9,37 @@
 
 <AnchorPane prefHeight="790.0" prefWidth="1607.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectWeaponAppl">
    <children>
-      <Label alignment="CENTER" prefHeight="89.0" prefWidth="1607.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Select Weapon. Remember,you can only choose one equipment of each type">
+      <Label alignment="CENTER" prefHeight="89.0" prefWidth="1607.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Select Weapon. Remember,you can only choose one equipment of each type">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="34.0" layoutY="709.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="60.0" prefWidth="107.0" style="-fx-background-color: #90EE90;" text="Back">
+      <Button layoutX="34.0" layoutY="709.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="60.0" prefWidth="107.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="643.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonGetDataWeapons" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="643.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonGetDataWeapons" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="201.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseSword" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Sword">
+      <Button layoutX="201.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseSword" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose Sword">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1144.0" layoutY="562.0" mnemonicParsing="false" onAction="#buttonChooseLance" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Lance">
+      <Button layoutX="1144.0" layoutY="562.0" mnemonicParsing="false" onAction="#buttonChooseLance" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose Lance">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="673.0" layoutY="720.0" mnemonicParsing="false" onAction="#buttonChooseBow" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90;" text="Choose Bow">
+      <Button layoutX="673.0" layoutY="720.0" mnemonicParsing="false" onAction="#buttonChooseBow" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #80ed99; -fx-border-color: Green;" text="Choose Bow">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1144.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseKnife" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Knife">
+      <Button layoutX="1144.0" layoutY="271.0" mnemonicParsing="false" onAction="#buttonChooseKnife" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose Knife">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
@@ -95,17 +95,16 @@
             <TableColumn fx:id="axeblade" prefWidth="137.0" text="Shape of blade" />
          </columns>
       </TableView>
-      <Button layoutX="201.0" layoutY="535.0" mnemonicParsing="false" onAction="#buttonChooseAxe" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose Axe">
+      <Button layoutX="201.0" layoutY="535.0" mnemonicParsing="false" onAction="#buttonChooseAxe" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose Axe">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label fx:id="error" layoutX="578.0" layoutY="152.0" prefHeight="24.0" prefWidth="345.0" />
-      <Label fx:id="chooseBow" layoutX="869.0" layoutY="731.0" prefHeight="30.0" prefWidth="410.0" />
-      <Label fx:id="money" layoutX="579.0" layoutY="341.0" prefHeight="30.0" prefWidth="345.0" />
-      <Label fx:id="chooseSword" layoutX="374.0" layoutY="289.0" prefHeight="24.0" prefWidth="262.0" />
-      <Label fx:id="chooseKnife" layoutX="1323.0" layoutY="289.0" prefHeight="24.0" prefWidth="274.0" />
-      <Label fx:id="chooseLance" layoutX="1321.0" layoutY="553.0" prefHeight="24.0" prefWidth="274.0" />
-      <Label fx:id="chooseAxe" layoutX="20.0" layoutY="545.0" prefHeight="30.0" prefWidth="171.0" />
+      <Label fx:id="error" layoutX="589.0" layoutY="241.0" prefHeight="24.0" prefWidth="345.0" />
+      <Label fx:id="money" layoutX="589.0" layoutY="183.0" prefHeight="30.0" prefWidth="345.0" />
+      <Label fx:id="choose" layoutX="616.0" layoutY="356.0" prefHeight="164.0" prefWidth="290.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

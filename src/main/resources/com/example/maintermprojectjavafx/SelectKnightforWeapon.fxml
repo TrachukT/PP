@@ -9,27 +9,27 @@
 
 <AnchorPane prefHeight="565.0" prefWidth="779.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectWeaponAppl">
    <children>
-      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" onAction="#buttonBackToMenu" prefHeight="52.0" prefWidth="89.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="29.0" layoutY="491.0" mnemonicParsing="false" onAction="#buttonBackToMenu" prefHeight="52.0" prefWidth="89.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="94.0" prefWidth="779.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="&#9;&#9;Welcome to Select Weapon for knight!&#10;Firstly select the knight from the table or add you own one">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-6.0" prefHeight="94.0" prefWidth="779.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="&#9;&#9;Welcome to Select Weapon for knight!&#10;Firstly select the knight from the table or add you own one">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="322.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonChooseKnight" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose knight">
+      <Button layoutX="322.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonChooseKnight" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose knight">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="521.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonAddKnight" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Add own knight">
+      <Button layoutX="521.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonAddKnight" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Add own knight">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="131.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="131.0" layoutY="433.0" mnemonicParsing="false" onAction="#buttonGetData" prefHeight="58.0" prefWidth="147.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>

@@ -5,23 +5,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.MainMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="684.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.MainMenu">
    <children>
       <Label alignment="TOP_CENTER" layoutX="105.0" layoutY="114.0" prefHeight="25.0" prefWidth="281.0" text="Information about program" wrapText="true">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font></Label>
-      <Button layoutX="426.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchRegistration" prefHeight="39.0" prefWidth="151.0" text="Registration">
+      <Button alignment="CENTER" layoutX="426.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchRegistration" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Registration">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="426.0" layoutY="251.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="39.0" prefWidth="151.0" text="Login">
+      <Button alignment="CENTER" layoutX="426.0" layoutY="251.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Login">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="426.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchExit" prefHeight="39.0" prefWidth="151.0" text="Exit">
+      <Button alignment="CENTER" layoutX="426.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchExit" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Exit">
          <font>
             <Font size="18.0" />
          </font>
@@ -41,12 +41,12 @@
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="184.0" layoutY="30.0" text="Welcome to the main menu.Choose the action">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-3.0" prefHeight="88.0" prefWidth="686.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Welcome to the main menu.Choose the action">
          <font>
-            <Font name="Times New Roman" size="20.0" />
+            <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="426.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchInfo" prefHeight="40.0" prefWidth="151.0" text="Info">
+      <Button alignment="CENTER" layoutX="426.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchInfo" prefHeight="40.0" prefWidth="151.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Info">
          <font>
             <Font size="18.0" />
          </font></Button>

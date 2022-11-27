@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="759.0" prefWidth="1206.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectEquipmentAppl">
    <children>
-      <Label alignment="CENTER" prefHeight="82.0" prefWidth="1206.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Select equipment.Remember,you can only choose one equipment of each type">
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="1206.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Select equipment.Remember,you can only choose one equipment of each type">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
@@ -24,17 +24,17 @@
             <TableColumn fx:id="typeofarmorEquip" prefWidth="132.0" text="Type" />
          </columns>
       </TableView>
-      <Button layoutX="32.0" layoutY="673.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="60.0" prefWidth="107.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="32.0" layoutY="673.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="60.0" prefWidth="107.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="267.0" layoutY="562.0" mnemonicParsing="false" onAction="#buttonGetDataEquipment" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="267.0" layoutY="562.0" mnemonicParsing="false" onAction="#buttonGetDataEquipment" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="579.0" layoutY="562.0" mnemonicParsing="false" onAction="#chooseEquipment" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose equipment">
+      <Button layoutX="579.0" layoutY="562.0" mnemonicParsing="false" onAction="#chooseEquipment" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose equipment">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>

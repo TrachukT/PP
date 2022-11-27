@@ -148,6 +148,7 @@ public class SelectWeaponAppl implements Initializable {
         KnifeTable.setItems(knives);
         ObservableList<Sword> swords=readData.readSwordForTable();
         SwordTable.setItems(swords);
+        checkExistedequip();
     }
 
     public void buttonChooseKnight(ActionEvent event) throws  IOException{
@@ -199,7 +200,7 @@ public class SelectWeaponAppl implements Initializable {
         stage.show();
     }
     @FXML
-    Label chooseBow;
+    Label choose;
     @FXML
     Label error;
     @FXML
@@ -207,15 +208,71 @@ public class SelectWeaponAppl implements Initializable {
     public void buttonChooseBow(ActionEvent event){
         int Id = BowTable.getSelectionModel().getSelectedIndex();
         Bow elem= BowTable.getItems().get(Id);
-        //System.out.println(elem.toString(1));
-        allDataInterface.setIdofWeapon(Id);
+        if(Id==-1){
+            error.setText("Firstly choose the elem");
+            return;
+        }
+        if(weaponList.getsize()==0) { readData.readWeapon(weaponList); }
+        int weaponId= findid(weaponList,elem);
+        allDataInterface.setIdofWeapon(weaponId);
+        selecting(weaponList,weaponId);
+   }
+    public void buttonChooseSword(ActionEvent event){
+        int Id = SwordTable.getSelectionModel().getSelectedIndex();
+        Sword elem= SwordTable.getItems().get(Id);
+        if(Id==-1){
+            error.setText("Firstly choose the elem");
+            return;
+        }
+        if(weaponList.getsize()==0) { readData.readWeapon(weaponList);}
+        int weaponId= findid(weaponList,elem);
+        allDataInterface.setIdofWeapon(weaponId);
+        selecting(weaponList,weaponId);
+    }
+    public void buttonChooseKnife(ActionEvent event){
+        int Id = KnifeTable.getSelectionModel().getSelectedIndex();
+        Knife elem= KnifeTable.getItems().get(Id);
+        if(Id==-1){
+            error.setText("Firstly choose the elem");
+            return;
+        }
+        if(weaponList.getsize()==0) {readData.readWeapon(weaponList);}
+        int weaponId= findid(weaponList,elem);
+        allDataInterface.setIdofWeapon(weaponId);
+        selecting(weaponList,weaponId);
+    }
+    public void buttonChooseLance(ActionEvent event){
+        int Id = LanceTable.getSelectionModel().getSelectedIndex();
+        Lance elem= LanceTable.getItems().get(Id);
+        if(Id==-1){
+            error.setText("Firstly choose the elem");
+            return;
+        }
         if(weaponList.getsize()==0) {
             readData.readWeapon(weaponList);
         }
+        int weaponId= findid(weaponList,elem);
+        allDataInterface.setIdofWeapon(weaponId);
+        selecting(weaponList,weaponId);
+    }
+    public void buttonChooseAxe(ActionEvent event){
+        int Id = AxeTable.getSelectionModel().getSelectedIndex();
+        Axe elem= AxeTable.getItems().get(Id);
+        if(Id==-1){
+            error.setText("Firstly choose the elem");
+            return;
+        }
+        if(weaponList.getsize()==0) {
+            readData.readWeapon(weaponList);
+        }
+        int weaponId= findid(weaponList,elem);
+        allDataInterface.setIdofWeapon(weaponId);
+        selecting(weaponList,weaponId);
+    }
+    public  void selecting(WeaponList weaponList,int weaponId){
         double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
         double allcost=0;
         checksize(allDataInterface.getIdofKnight());
-        int weaponId= findid(weaponList,elem);
         if(!isExist(weaponList.getelem(weaponId), knightWeapon.get(allDataInterface.getIdofKnight()))) {
             amountOfMoney1 -= weaponList.getelem(weaponId).getCost();
             if (amountOfMoney1 <= 0){
@@ -223,145 +280,15 @@ public class SelectWeaponAppl implements Initializable {
                 return;
             }
             knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            chooseBow.setText("");
+            //choose.setText("");
             System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString());
             knightWeapon.get(allDataInterface.getIdofKnight()).printList();
             allcost+=weaponList.getelem(weaponId).getCost();
             money.setText("Amount of money left - "+amountOfMoney1);
-            chooseBow.setText("You choosed "+weaponList.getelem(weaponId).getName());
+            choose.setText(choose.getText()+"\nYou choosed "+weaponList.getelem(weaponId).getName());
         }
         knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
         i++;
-        //knightInfo.printList();
-   }
-   @FXML
-   Label chooseSword;
-    public void buttonChooseSword(ActionEvent event){
-        int Id = SwordTable.getSelectionModel().getSelectedIndex();
-        Sword elem= SwordTable.getItems().get(Id);
-        //System.out.println(elem.toString(1));
-        //allDataInterface.setIdofWeapon(Id);
-        if(weaponList.getsize()==0) {
-            readData.readWeapon(weaponList);
-        }
-        double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
-        double allcost=0;
-        checksize(allDataInterface.getIdofKnight());
-        int weaponId= findid(weaponList,elem);
-        if(!isExist(weaponList.getelem(weaponId), knightWeapon.get(allDataInterface.getIdofKnight()))) {
-            amountOfMoney1 -= weaponList.getelem(weaponId).getCost();
-            if (amountOfMoney1 <= 0){
-                error.setText("Not enough money");
-                return;
-            }
-            knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            chooseSword.setText("");
-            System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-            knightWeapon.get(allDataInterface.getIdofKnight()).printList();
-            allcost+=weaponList.getelem(weaponId).getCost();
-            money.setText("Amount of money left - "+amountOfMoney1);
-            chooseSword.setText("You choosed "+weaponList.getelem(weaponId).getName());
-        }
-        knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
-        i++;
-        //knightInfo.printList();
-    }
-    @FXML
-    Label chooseKnife;
-    public void buttonChooseKnife(ActionEvent event){
-        int Id = KnifeTable.getSelectionModel().getSelectedIndex();
-        Knife elem= KnifeTable.getItems().get(Id);
-        //System.out.println(elem.toString(1));
-        //allDataInterface.setIdofWeapon(Id);
-        if(weaponList.getsize()==0) {
-            readData.readWeapon(weaponList);
-        }
-        double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
-        double allcost=0;
-        checksize(allDataInterface.getIdofKnight());
-        int weaponId= findid(weaponList,elem);
-        if(!isExist(weaponList.getelem(weaponId), knightWeapon.get(allDataInterface.getIdofKnight()))) {
-            amountOfMoney1 -= weaponList.getelem(weaponId).getCost();
-            if (amountOfMoney1 <= 0){
-                error.setText("Not enough money");
-                return;
-            }
-            knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            chooseKnife.setText("");
-            System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-            knightWeapon.get(allDataInterface.getIdofKnight()).printList();
-            allcost+=weaponList.getelem(weaponId).getCost();
-            money.setText("Amount of money left - "+amountOfMoney1);
-            chooseKnife.setText("You choosed "+weaponList.getelem(weaponId).getName());
-        }
-        knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
-        i++;
-        //knightInfo.printList();
-    }
-    @FXML
-    Label chooseLance;
-    public void buttonChooseLance(ActionEvent event){
-        int Id = LanceTable.getSelectionModel().getSelectedIndex();
-        Lance elem= LanceTable.getItems().get(Id);
-        //System.out.println(elem.toString(1));
-        //allDataInterface.setIdofWeapon(Id);
-        if(weaponList.getsize()==0) {
-            readData.readWeapon(weaponList);
-        }
-        double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
-        double allcost=0;
-        checksize(allDataInterface.getIdofKnight());
-        int weaponId= findid(weaponList,elem);
-        if(!isExist(weaponList.getelem(weaponId), knightWeapon.get(allDataInterface.getIdofKnight()))) {
-            amountOfMoney1 -= weaponList.getelem(weaponId).getCost();
-            if (amountOfMoney1 <= 0){
-                error.setText("Not enough money");
-                return;
-            }
-            knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            chooseLance.setText("");
-            System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-            knightWeapon.get(allDataInterface.getIdofKnight()).printList();
-            allcost+=weaponList.getelem(weaponId).getCost();
-            money.setText("Amount of money left - "+amountOfMoney1);
-            chooseLance.setText("You choosed "+weaponList.getelem(weaponId).getName());
-        }
-        knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
-        i++;
-        //knightInfo.printList();
-    }
-
-    @FXML
-    Label chooseAxe;
-    public void buttonChooseAxe(ActionEvent event){
-        int Id = AxeTable.getSelectionModel().getSelectedIndex();
-        Axe elem= AxeTable.getItems().get(Id);
-        //System.out.println(elem.toString(1));
-        //allDataInterface.setIdofWeapon(Id);
-        if(weaponList.getsize()==0) {
-            readData.readWeapon(weaponList);
-        }
-        double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
-        double allcost=0;
-        checksize(allDataInterface.getIdofKnight());
-        int weaponId= findid(weaponList,elem);
-        if(!isExist(weaponList.getelem(weaponId), knightWeapon.get(allDataInterface.getIdofKnight()))) {
-            amountOfMoney1 -= weaponList.getelem(weaponId).getCost();
-            if (amountOfMoney1 <= 0){
-                error.setText("Not enough money");
-                return;
-            }
-            knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            chooseAxe.setText("");
-            System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-            knightWeapon.get(allDataInterface.getIdofKnight()).printList();
-            allcost+=weaponList.getelem(weaponId).getCost();
-            money.setText("Amount of money left - "+amountOfMoney1);
-            chooseAxe.setText("You choosed "+weaponList.getelem(weaponId).getName());
-        }
-        knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
-        i++;
-        //knightInfo.printList();
     }
     public void BackToSelectKnight(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SelectKnightforWeapon.fxml"));
@@ -374,6 +301,12 @@ public class SelectWeaponAppl implements Initializable {
         stage.setTitle("Select knight");
         stage.setScene(scene);
         stage.show();
+    }
+    public void checkExistedequip(){
+        for(int l=0;l<knightWeapon.get(allDataInterface.getIdofKnight()).getsize();l++){
+            choose.setText(choose.getText()+"\n you already has "+knightWeapon.get(allDataInterface.getIdofKnight()).getelem(l).getName());
+        }
+        money.setText("Amount of money left - "+knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney());
     }
     public void buttonBackToMenu(ActionEvent event) throws IOException {
         if(i!=0) {

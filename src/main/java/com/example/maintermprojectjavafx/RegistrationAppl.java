@@ -33,6 +33,7 @@ public class RegistrationAppl {
         String emailText = email.getText();
         String usernameText = username.getText();
         String passwordText = password.getText();
+        System.out.println("fgfgfgfgf\n"+emailText+"\nfplg;flg");
         ReadData readData = new ReadData();
         Loginlist usersdata = new Loginlist();
         readData.readLogins(usersdata);
@@ -40,6 +41,11 @@ public class RegistrationAppl {
         if (usersdata.finduser(user)){
             error.setMinWidth(300);
             error.setText("You are already registered.Please login.");
+            return;
+        }
+        if(emailText.equals("") || usernameText.equals("") || passwordText.equals("")){
+            error.setMinWidth(300);
+            error.setText("You entered not all infotmation.Please fill all fields");
             return;
         }
         if(!usersdata.checkmail(emailText)){
@@ -55,6 +61,7 @@ public class RegistrationAppl {
             error.setText("");
             registered.setMinWidth(320);
             registered.setMinHeight(33);
+            error.setText("");
             registered.setText("Congratulations!You are registered.\nLog into created account.");
             //switchBack(event);
         }

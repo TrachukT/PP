@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.MainMenu">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="&#9;&#9;&#9;Welcome to info&#10;Here is the main information about our program:">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="&#9;&#9;&#9;Welcome to info&#10;Here is the main information about our program:">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font></Label>
@@ -15,7 +15,7 @@
          <font>
             <Font name="Times New Roman" size="19.0" />
          </font></Label>
-      <Button alignment="TOP_CENTER" layoutX="252.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back" textAlignment="CENTER">
+      <Button alignment="TOP_CENTER" layoutX="252.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font></Button>

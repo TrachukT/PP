@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.UpdateEquipmentAppl">
    <children>
-      <Button layoutX="264.0" layoutY="516.0" mnemonicParsing="false" onAction="#chooseEquip" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Choose equipment ">
+      <Button layoutX="264.0" layoutY="516.0" mnemonicParsing="false" onAction="#chooseEquip" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Choose equipment ">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="456.0" layoutY="516.0" mnemonicParsing="false" onAction="#SubmitUpdateEquip" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Submit changes">
+      <Button layoutX="456.0" layoutY="516.0" mnemonicParsing="false" onAction="#SubmitUpdateEquip" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Submit changes">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
@@ -36,17 +36,17 @@
             <TableColumn fx:id="typeofarmor" prefWidth="102.0" text="Type" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="534.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="14.0" layoutY="534.0" mnemonicParsing="false" onAction="#buttonBack" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="101.0" layoutY="417.0" mnemonicParsing="false" onAction="#buttonGetDataEquipment" prefHeight="45.0" prefWidth="114.0" style="-fx-background-color: #90EE90; -fx-border-color: GREEN;" text="Get Data">
+      <Button layoutX="101.0" layoutY="417.0" mnemonicParsing="false" onAction="#buttonGetDataEquipment" prefHeight="45.0" prefWidth="114.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Get Data">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutY="-5.0" prefHeight="77.0" prefWidth="701.0" style="-fx-background-color: Lavender; -fx-border-color: MEDIUMPURPLE;" text="Choose equipment you want to update and enter new cost">
+      <Label alignment="CENTER" layoutY="-5.0" prefHeight="77.0" prefWidth="701.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Choose equipment you want to update and enter new cost">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
