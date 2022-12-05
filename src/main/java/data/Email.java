@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 public class Email {
+    private final String username = "tetiana.trachuk@outlook.com";
+    private final String password = "tania12345";
     public void send() {
-        final String username = "tetiana.trachuk@outlook.com";
-        final String password = "tania12345";
+//        final String username = "tetiana.trachuk@outlook.com";
+//        final String password = "tania12345";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.office365.com");
@@ -50,6 +52,35 @@ public class Email {
             e.printStackTrace();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public void registrationVerification(String mail){
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.office365.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        prop.put("mail.smtp.starttls.enable", "true");
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("tetiana.trachuk@outlook.com"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse(mail)
+            );
+            message.setSubject("Testing");
+            message.setText("Congratulations!!!"
+                    + "\n\n Account on this email succesfully registered.");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
         }
     }
 }

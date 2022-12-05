@@ -120,6 +120,5 @@ public class WeaponList {
 //    }
     public void sortWeapon(){
         this.allweapon.sort(Comparator.comparingDouble(Weapon::getWeight));
-        printList();
     }
 }

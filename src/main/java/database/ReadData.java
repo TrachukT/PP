@@ -7,9 +7,12 @@ import javafx.collections.ObservableList;
 import knight.Knight;
 import weapon.*;
 
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,11 +34,6 @@ public class ReadData {
                 String name=resultSet.getString("name");
                 String password=resultSet.getString("password");
                 loginlist.insertLogin(name,password,email);
-//                System.out.print(resultSet.getString("loginid")+"). ");
-//                System.out.print(resultSet.getString("email")+" ");
-//                System.out.print(resultSet.getString("name")+" ");
-//                System.out.println(resultSet.getString("password")+" ");
-
             }
         }catch (Exception e){
             System.out.println("Read failed"+ e);
@@ -133,70 +131,52 @@ public class ReadData {
         double weight;
         double cost;
         double damage;
+        String[] tables = new String[]{"bow", "axe", "knife", "sword", "lance"};
         try {
-            String query = String.format("select * from %s", "bow");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                int amofarrows = resultSet.getInt("amountofarows");
-                String typeofbowstring = resultSet.getString("typeofbowstring");
-                weaponList.insertWeaponFromDB(new Bow(name, type, weight, cost, damage, amofarrows, typeofbowstring));
-            }
-            query = String.format("select * from %s", "axe");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                String bladeshape = resultSet.getString("bladeshape");
-                weaponList.insertWeaponFromDB(new Axe(name, type, weight, cost, damage, bladeshape));
-            }
-            query = String.format("select * from %s", "knife");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                String typeofknife = resultSet.getString("typeofknife");
-                weaponList.insertWeaponFromDB(new Knife(name, type, weight, cost, damage, typeofknife));
-            }
-            query = String.format("select * from %s", "sword");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                String typeofblade = resultSet.getString("typeofblade");
-                weaponList.insertWeaponFromDB(new Sword(name, type, weight, cost, damage, typeofblade));
-            }
-            query = String.format("select * from %s", "lance");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                int lengthoflance = resultSet.getInt("lengthoflance");
-                weaponList.insertWeaponFromDB(new Lance(name, type, weight, cost, damage, lengthoflance));
+            for(int i=0;i<tables.length;i++) {
+                String query = String.format("select * from %s", tables[i]);
+                statement = this.connection.createStatement();
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    name = resultSet.getString("name");
+                    type = resultSet.getString("type");
+                    weight = resultSet.getDouble("weight");
+                    cost = resultSet.getDouble("cost");
+                    damage = resultSet.getDouble("damage");
+                    insertFromDB(weaponList,resultSet,tables[i],name,type,weight,cost,damage);
+                }
             }
         } catch (Exception e) {
             System.out.println("Read failed" + e);
+        }
+    }
+    public void insertFromDB(WeaponList weaponList ,ResultSet resultSet,String tablename,String name, String type,double weight,double cost,double damage) throws SQLException {
+        String stringField;
+        int intField;
+        switch (tablename){
+            case "bow":
+                intField = resultSet.getInt("amountofarows");
+                stringField = resultSet.getString("typeofbowstring");
+                weaponList.insertWeaponFromDB(new Bow(name, type, weight, cost, damage, intField, stringField));
+                break;
+            case "axe":
+                stringField = resultSet.getString("bladeshape");
+                weaponList.insertWeaponFromDB(new Axe(name, type, weight, cost, damage, stringField));
+                break;
+            case "knife":
+                stringField = resultSet.getString("typeofknife");
+                weaponList.insertWeaponFromDB(new Knife(name, type, weight, cost, damage, stringField));
+                break;
+            case "sword":
+                stringField = resultSet.getString("typeofblade");
+                weaponList.insertWeaponFromDB(new Sword(name, type, weight, cost, damage, stringField));
+                break;
+            case "lance":
+                intField = resultSet.getInt("lengthoflance");
+                weaponList.insertWeaponFromDB(new Lance(name, type, weight, cost, damage, intField));
+                break;
+            default:
+                break;
         }
     }
     public ObservableList<Lance> readLanceForTable() {
@@ -424,61 +404,20 @@ public class ReadData {
         double cost;
         double damage;
         ObservableList<Weapon> weaponList = FXCollections.observableArrayList();
+        String[] tables = new String[]{"bow", "axe", "knife", "sword", "lance"};
         try {
-            String query = String.format("select * from %s", "bow");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                weaponList.add(new Weapon(name, type, weight, cost, damage));
-            }
-            query = String.format("select * from %s", "axe");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                weaponList.add(new Weapon(name, type, weight, cost, damage));
-            }
-            query = String.format("select * from %s", "knife");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                weaponList.add(new Weapon(name, type, weight, cost, damage));
-            }
-            query = String.format("select * from %s", "sword");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                weaponList.add(new Weapon(name, type, weight, cost, damage));
-            }
-            query = String.format("select * from %s", "lance");
-            statement = this.connection.createStatement();
-            resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                name = resultSet.getString("name");
-                type = resultSet.getString("type");
-                weight = resultSet.getDouble("weight");
-                cost = resultSet.getDouble("cost");
-                damage = resultSet.getDouble("damage");
-                weaponList.add(new Weapon(name, type, weight, cost, damage));
+            for(int i=0;i<tables.length;i++) {
+                String query = String.format("select * from %s", tables[i]);
+                statement = this.connection.createStatement();
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    name = resultSet.getString("name");
+                    type = resultSet.getString("type");
+                    weight = resultSet.getDouble("weight");
+                    cost = resultSet.getDouble("cost");
+                    damage = resultSet.getDouble("damage");
+                    weaponList.add(new Weapon(name, type, weight, cost, damage));
+                }
             }
         } catch (Exception e) {
             System.out.println("Read failed" + e);

@@ -86,10 +86,6 @@ public class DeleteEquipmentAppl implements Initializable {
             //Loginlist loginlist = new Loginlist();
             knightWeapon = AllDataInterface.getKnightsWeapon();
             knightInfo = AllDataInterface.getKnightInfo();
-            for (int i = 0; i < knightWeapon.size(); i++) {
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knightWeapon.get(i).printList();
-            }
         }
     }
     @FXML
@@ -105,7 +101,6 @@ public class DeleteEquipmentAppl implements Initializable {
             return;
         }
         allDataInterface.setIdofKnight(IdW);
-        System.out.println(this.allDataInterface.getIdofKnight());
         if(knightInfo.getsize()==0) {
             readData.readKnights(knightInfo);
         }
@@ -119,13 +114,8 @@ public class DeleteEquipmentAppl implements Initializable {
             knightInfo=AllDataInterface.getKnightInfo();
             knightequip=AllDataInterface.getKnightsEquip();
             knightWeapon=AllDataInterface.getKnightsWeapon();
-            for(int i=0;i< knightWeapon.size();i++){
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knightWeapon.get(i).printList();
-            }
             i++;
         }
-        System.out.println(AllDataInterface.getUser());
         root = FXMLLoader.load(getClass().getResource("DeleteEquipment.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setMaximized(true);
@@ -138,7 +128,6 @@ public class DeleteEquipmentAppl implements Initializable {
     public  void buttonGetDeleteData(ActionEvent event) throws IOException{
         Loginlist loginlist=new Loginlist();
         readData.readLogins(loginlist);
-        System.out.println(allDataInterface.getIdofKnight());
         WeaponList weaponList1=new WeaponList();
         readData.readWeapon(weaponList1);
         readData.readEquip(equipList);
@@ -156,14 +145,9 @@ public class DeleteEquipmentAppl implements Initializable {
             knighterror.setText("Press to the equipment you want to delete");
             return;
         }
-        System.out.println(allDataInterface.getIdofKnight());
-        System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(1));
         allDataInterface.setIdofEquipment(equipId);
-        knightequip.get(allDataInterface.getIdofKnight()).printList();
         knightInfo.addMoney(allDataInterface.getIdofKnight(), knightequip.get(allDataInterface.getIdofKnight()).getelem(equipId).getCost());
         knightequip.get(allDataInterface.getIdofKnight()).removeelem(equipId);
-        System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-        knightequip.get(allDataInterface.getIdofKnight()).printList();
         Loginlist loginlist=new Loginlist();
         readData.readLogins(loginlist);
         Insert insert=new Insert();
@@ -171,6 +155,7 @@ public class DeleteEquipmentAppl implements Initializable {
         readData.readEquip(equipList1);
         insert.insertKnightEquipment(insert.userid(loginlist, AllDataInterface.getUser()), equipList1, knightequip);
         AllDataInterface.setKnightsEquip(knightequip);
+        buttonGetDeleteData(event);
     }
     public void buttonDeleteWeapon(ActionEvent event)throws  IOException{
         int weaponId=WeaponTable.getSelectionModel().getSelectedIndex();
@@ -179,14 +164,9 @@ public class DeleteEquipmentAppl implements Initializable {
             knighterror.setText("Press to the weapon you want to delete");
             return;
         }
-        System.out.println(allDataInterface.getIdofKnight());
-        System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(1));
         allDataInterface.setIdofWeapon(weaponId);
-        knightWeapon.get(allDataInterface.getIdofKnight()).printList();
         knightInfo.addMoney(allDataInterface.getIdofKnight(), knightWeapon.get(allDataInterface.getIdofKnight()).getelem(weaponId).getCost());
         knightWeapon.get(allDataInterface.getIdofKnight()).removeelem(weaponId);
-        System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString(allDataInterface.getIdofKnight()));
-        knightWeapon.get(allDataInterface.getIdofKnight()).printList();
         Loginlist loginlist=new Loginlist();
         readData.readLogins(loginlist);
         Insert insert=new Insert();
@@ -194,17 +174,13 @@ public class DeleteEquipmentAppl implements Initializable {
         readData.readWeapon(weaponList1);
         insert.insertKnightsWeapon(insert.userid(loginlist, AllDataInterface.getUser()), weaponList1, knightWeapon);
         AllDataInterface.setKnightsWeapon(knightWeapon);
+        buttonGetDeleteData(event);
     }
 
     public void BackToSelectKnight(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SelectKnightForDelete.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-//        for(int i=0;i< knightInfo.getsize();i++){
-//            System.out.println(knightInfo.getknight(i).toString(i));
-//            knightequip.get(i).printList();
-//            knightWeapon.get(i).printList();
-//        }
         stage.setTitle("Select knight");
         stage.setScene(scene);
         stage.show();

@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import knight.Knight;
 import org.w3c.dom.Text;
+import weapon.Weapon;
 
 import java.io.IOException;
 import java.net.URL;
@@ -87,18 +88,11 @@ public class SelectEquipmentAppl implements Initializable {
             Loginlist loginlist = new Loginlist();
             knigthequip = AllDataInterface.getKnightsEquip();
             knightInfo = AllDataInterface.getKnightInfo();
-            for (int i = 0; i < knigthequip.size(); i++) {
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knigthequip.get(i).printList();
-            }
         }
     }
     public void buttonChooseKnight(ActionEvent event) throws  IOException{
         int IdW = knightsTable.getSelectionModel().getSelectedIndex();
         allDataInterface.setIdofKnight(IdW);
-        System.out.println(this.allDataInterface.getIdofKnight());
-        //Idknight=IdW;
-        //System.out.println(Idknight);
         if(IdW==-1){
             return;
         }
@@ -110,13 +104,8 @@ public class SelectEquipmentAppl implements Initializable {
             readData.readLogins(loginlist);
             knigthequip=new ArrayList<>();
             knigthequip = AllDataInterface.getKnightsEquip();
-            for(int i=0;i< knigthequip.size();i++){
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knigthequip.get(i).printList();
-            }
             i++;
         }
-        System.out.println(AllDataInterface.getUser());
         root = FXMLLoader.load(getClass().getResource("SelectEquipment.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -134,34 +123,48 @@ public class SelectEquipmentAppl implements Initializable {
         stage.show();
     }
     public void AddNewKnight(ActionEvent event)throws IOException {
+        addknighterror.setText("");
         String nameT =  nameText.getText();
         int ageT = Integer.parseInt(ageText.getText());
         int centuryT = Integer.parseInt(centuryText.getText());
         String nationalityT = nationalityText.getText();
         double amountofmoneyT = Double.parseDouble(amountofmoneyText.getText());
         KnightInfo knightInfo=new KnightInfo();
-        knightInfo.addKnightInterface(nameT, ageT, centuryT, nationalityT, amountofmoneyT);
-        BackToSelectKnight(event);
+        readData.readKnights(knightInfo);
+        if(!checkExistedName(knightInfo,nameT)) {
+            knightInfo.addKnightInterface(nameT, ageT, centuryT, nationalityT, amountofmoneyT);
+            BackToSelectKnight(event);
+        }
         //buttonGetData(event);
+    }
+    @FXML
+    Label addknighterror;
+    public boolean checkExistedName(KnightInfo knightInfo,String name){
+        for (int i=0;i<knightInfo.getsize();i++) {
+            if (knightInfo.getknight(i).getName().equalsIgnoreCase(name)) {
+                addknighterror.setText("There is already knight with this name.\nPlease enter another name");
+                return true;
+            }
+        }
+        return false;
     }
     public void buttonGetDataEquipment(ActionEvent event) throws IOException{
         ReadData readData=new ReadData();
         ObservableList<Equipment> equipment = readData.readEquipForTable();
         EquipTable.setItems(equipment);
+        checksize(allDataInterface.getIdofKnight(),knigthequip);
         checkExistedequip();
     }
     public void chooseEquipment(ActionEvent event){
         int Id = EquipTable.getSelectionModel().getSelectedIndex();
-        allDataInterface.setIdofEquipment(Id);
-        //System.out.println("\nfgfg\n"+allDataInterface.getIdofKnight());
+        Equipment equipment = EquipTable.getItems().get(Id);
        if(equipList.getsize()==0) {
-           //ReadData readData = new ReadData();
            readData.readEquip(equipList);
        }
-
+        Id=findid(equipList,equipment);
+        allDataInterface.setIdofEquipment(Id);
         double amountOfMoney1=knightInfo.getknight(allDataInterface.getIdofKnight()).getAmountOfMoney();
         double allcost=0;
-        checksize(allDataInterface.getIdofKnight(),knigthequip);
         if(!isExist(equipList.getelem(Id), knigthequip.get(allDataInterface.getIdofKnight()))) {
             amountOfMoney1 -= equipList.getelem(Id).getCost();
             if (amountOfMoney1 <= 0){
@@ -170,13 +173,22 @@ public class SelectEquipmentAppl implements Initializable {
             }
             knigthequip.get(allDataInterface.getIdofKnight()).addKnightEquipInterface(equipList.getelem(Id));
             addedlist.setText(addedlist.getText()+"\n you add "+equipList.getelem(Id).getName());
-            knigthequip.get(allDataInterface.getIdofKnight()).printList();
             allcost+=equipList.getelem(Id).getCost();
             money.setText("Amount of money left - "+amountOfMoney1);
             i++;
         }
         knightInfo.cutMoney(allDataInterface.getIdofKnight(), allcost);
-        knightInfo.printList();
+        knigthequip.get(allDataInterface.getIdofKnight()).sortEquip();
+        //knightInfo.printList();
+    }
+    public int findid(EquipList equipList, Equipment elem){
+        int count=0;
+        for(;count<equipList.getsize();count++){
+            if(equipList.getelem(count).getName().equals(elem.getName())){
+                return (count);
+            }
+        }
+        return -1;
     }
     public void checkExistedequip(){
         for(int l=0;l<knigthequip.get(allDataInterface.getIdofKnight()).getsize();l++){
@@ -207,10 +219,10 @@ public class SelectEquipmentAppl implements Initializable {
         root = FXMLLoader.load(getClass().getResource("SelectKnightforEquip.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        for(int i=0;i< knigthequip.size();i++){
-            System.out.println(knightInfo.getknight(i).toString(i));
-            knigthequip.get(i).printList();
-        }
+//        for(int i=0;i< knigthequip.size();i++){
+//            //System.out.println(knightInfo.getknight(i).toString(i));
+//            knigthequip.get(i).printList();
+//        }
         stage.setTitle("Select knight");
         stage.setScene(scene);
         stage.show();
@@ -227,6 +239,7 @@ public class SelectEquipmentAppl implements Initializable {
             readData.readEquip(equipList1);
             insert.insertKnightEquipment(insert.userid(loginlist, AllDataInterface.getUser()), equipList1, knigthequip);
             AllDataInterface.setKnightsEquip(knigthequip);
+            knigthequip=new ArrayList<>();
         }
         i=0;
         scene = new Scene(root);

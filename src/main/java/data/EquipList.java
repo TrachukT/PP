@@ -116,7 +116,6 @@ public class EquipList {
     }
     public void sortEquip(){
         allequipment.sort(Comparator.comparingDouble(Equipment::getWeight));
-        printList();
     }
     public void removeelem(int i){
         this.allequipment.remove(i);

@@ -20,7 +20,7 @@ public class Insert {
             String query = String.format("insert into logins(email,name,password) values('%s','%s','%s');",email,name,password);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -31,7 +31,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into equipment(name,material,cost,weight,strength,typeofarmor) values('%s','%s','%f','%f','%f','%s');",name,material, cost, weight,strength,typeofarmour);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -42,7 +42,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into knights(name,age,century,nationality,amountofmoney) values('%s','%d','%d','%s','%f');",name,age,century,nationality,amountofmoney);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+           // System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -53,7 +53,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into bow(name, type, weight, cost, damage, amountofarows, typeofbowstring) values('%s','%s','%f','%f','%f','%d','%s');",name, type, weight, cost, damage, amofarrows, typeofbowstring);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+           // System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -64,7 +64,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into axe(name, type, weight, cost, damage,bladeshape)  values('%s','%s','%f','%f','%f','%s');",name, type, weight, cost, damage,bladeshape);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -75,7 +75,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into axe(name, type, weight, cost, damage,typeofknife)  values('%s','%s','%f','%f','%f','%s');",name, type, weight, cost, damage,typeofknife);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -86,7 +86,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into axe(name, type, weight, cost, damage,bladeshape)  values('%s','%s','%f','%f','%f','%s');",name, type, weight, cost, damage,typeofblade);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -97,7 +97,7 @@ public class Insert {
             String query = String.format(Locale.US,"insert into axe(name, type, weight, cost, damage,lengthoflance)  values('%s','%s','%f','%f','%f','%d');",name, type, weight, cost, damage,lengthoflnace);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row inserted");
+            //System.out.println("Row inserted");
         }catch (Exception e){
             System.out.println("Insert failed\n"+e);
         }
@@ -115,7 +115,7 @@ public class Insert {
                         query = String.format(Locale.US, "insert into knightsequip(userid, knightid, equipmentid)  values('%d','%d','%d');", userID, i + 1, equipid);
                         statement = this.connection.createStatement();
                         statement.executeUpdate(query);
-                        System.out.println("Equipment inserted");
+                        //System.out.println("Equipment inserted");
                 } catch (Exception e) {
                     System.out.println("Equipment insert failed\n" + e);
                 }
@@ -140,7 +140,7 @@ public class Insert {
                     query = String.format(Locale.US, "insert into knightsweapon(userid, knightid, bow,axe,knife,sword,lance)  values('%d','%d','%s','%s','%s','%s','%s');", userID, i + 1,bow,axe,knife,sword,lance);
                     statement = this.connection.createStatement();
                     statement.executeUpdate(query);
-                    System.out.println("Weapon inserted");
+                    //System.out.println("Weapon inserted");
                 } catch (Exception e) {
                     System.out.println("Weapon Insert failed\n" + e);
                 }

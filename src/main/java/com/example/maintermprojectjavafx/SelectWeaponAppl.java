@@ -3,7 +3,6 @@ package com.example.maintermprojectjavafx;
 import data.*;
 import database.Insert;
 import database.ReadData;
-import equipment.Equipment;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -130,10 +128,6 @@ public class SelectWeaponAppl implements Initializable {
             //Loginlist loginlist = new Loginlist();
             knightWeapon = AllDataInterface.getKnightsWeapon();
             knightInfo = AllDataInterface.getKnightInfo();
-            for (int i = 0; i < knightWeapon.size(); i++) {
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knightWeapon.get(i).printList();
-            }
         }
     }
     public void buttonGetDataWeapons(ActionEvent event) throws IOException{
@@ -162,9 +156,6 @@ public class SelectWeaponAppl implements Initializable {
             return;
         }
         allDataInterface.setIdofKnight(IdW);
-        System.out.println(this.allDataInterface.getIdofKnight());
-        //Idknight=IdW;
-        //System.out.println(Idknight);
         if(knightInfo.getsize()==0) {
             readData.readKnights(knightInfo);
         }
@@ -174,13 +165,9 @@ public class SelectWeaponAppl implements Initializable {
             knightWeapon=new ArrayList<>();
             knightWeapon=AllDataInterface.getKnightsWeapon();
 //            readData.readKnightsWeapon(readData.userid(loginlist,AllDataInterface.getUser()),knightInfo,weaponList,knightWeapon);
-            for(int i=0;i< knightWeapon.size();i++){
-                System.out.println(knightInfo.getknight(i).toString(i));
-                knightWeapon.get(i).printList();
-            }
             i++;
         }
-        System.out.println(AllDataInterface.getUser());
+        //System.out.println(AllDataInterface.getUser());
         root = FXMLLoader.load(getClass().getResource("SelectWeapon.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setMaximized(true);
@@ -206,6 +193,7 @@ public class SelectWeaponAppl implements Initializable {
     @FXML
     Label money;
     public void buttonChooseBow(ActionEvent event){
+        error.setText("");
         int Id = BowTable.getSelectionModel().getSelectedIndex();
         Bow elem= BowTable.getItems().get(Id);
         if(Id==-1){
@@ -218,6 +206,7 @@ public class SelectWeaponAppl implements Initializable {
         selecting(weaponList,weaponId);
    }
     public void buttonChooseSword(ActionEvent event){
+        error.setText("");
         int Id = SwordTable.getSelectionModel().getSelectedIndex();
         Sword elem= SwordTable.getItems().get(Id);
         if(Id==-1){
@@ -230,6 +219,7 @@ public class SelectWeaponAppl implements Initializable {
         selecting(weaponList,weaponId);
     }
     public void buttonChooseKnife(ActionEvent event){
+        error.setText("");
         int Id = KnifeTable.getSelectionModel().getSelectedIndex();
         Knife elem= KnifeTable.getItems().get(Id);
         if(Id==-1){
@@ -242,6 +232,7 @@ public class SelectWeaponAppl implements Initializable {
         selecting(weaponList,weaponId);
     }
     public void buttonChooseLance(ActionEvent event){
+        error.setText("");
         int Id = LanceTable.getSelectionModel().getSelectedIndex();
         Lance elem= LanceTable.getItems().get(Id);
         if(Id==-1){
@@ -256,6 +247,7 @@ public class SelectWeaponAppl implements Initializable {
         selecting(weaponList,weaponId);
     }
     public void buttonChooseAxe(ActionEvent event){
+        error.setText("");
         int Id = AxeTable.getSelectionModel().getSelectedIndex();
         Axe elem= AxeTable.getItems().get(Id);
         if(Id==-1){
@@ -280,9 +272,6 @@ public class SelectWeaponAppl implements Initializable {
                 return;
             }
             knightWeapon.get(allDataInterface.getIdofKnight()).addKnightWeaponInterface(weaponList.getelem(weaponId));
-            //choose.setText("");
-            System.out.println(knightInfo.getknight(allDataInterface.getIdofKnight()).toString());
-            knightWeapon.get(allDataInterface.getIdofKnight()).printList();
             allcost+=weaponList.getelem(weaponId).getCost();
             money.setText("Amount of money left - "+amountOfMoney1);
             choose.setText(choose.getText()+"\nYou choosed "+weaponList.getelem(weaponId).getName());
@@ -291,13 +280,10 @@ public class SelectWeaponAppl implements Initializable {
         i++;
     }
     public void BackToSelectKnight(ActionEvent event) throws IOException {
+        knightWeapon.get(allDataInterface.getIdofKnight()).sortWeapon();
         root = FXMLLoader.load(getClass().getResource("SelectKnightforWeapon.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        for(int i=0;i< knightWeapon.size();i++){
-            System.out.println(knightInfo.getknight(i).toString(i));
-            knightWeapon.get(i).printList();
-        }
         stage.setTitle("Select knight");
         stage.setScene(scene);
         stage.show();

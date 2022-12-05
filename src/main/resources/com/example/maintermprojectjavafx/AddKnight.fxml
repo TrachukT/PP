@@ -6,52 +6,57 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectEquipmentAppl">
+<AnchorPane prefHeight="436.0" prefWidth="636.0" style="-fx-border-color: GHOSTWHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maintermprojectjavafx.SelectEquipmentAppl">
    <children>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="107.0" prefHeight="27.0" prefWidth="145.0" text="Name">
+      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="120.0" prefHeight="27.0" prefWidth="145.0" text="Name">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="152.0" prefHeight="27.0" prefWidth="145.0" text="Age">
+      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="165.0" prefHeight="27.0" prefWidth="145.0" text="Age">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="200.0" prefHeight="27.0" prefWidth="145.0" text="Century">
+      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="213.0" prefHeight="27.0" prefWidth="145.0" text="Century">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="244.0" prefHeight="27.0" prefWidth="145.0" text="Nationality">
+      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="257.0" prefHeight="27.0" prefWidth="145.0" text="Nationality">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="280.0" text="Amount of money">
+      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="293.0" text="Amount of money">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="-4.0" prefHeight="65.0" prefWidth="608.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Please enter information about new knight">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="-4.0" prefHeight="65.0" prefWidth="659.0" style="-fx-background-color: #bbadff; -fx-border-color: MEDIUMPURPLE;" text="Please enter information about new knight">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="nameText" layoutX="300.0" layoutY="108.0" />
-      <TextField fx:id="ageText" layoutX="300.0" layoutY="153.0" />
-      <TextField fx:id="centuryText" layoutX="300.0" layoutY="201.0" />
-      <TextField fx:id="nationalityText" layoutX="300.0" layoutY="245.0" />
-      <TextField fx:id="amountofmoneyText" layoutX="300.0" layoutY="281.0" />
-      <Button layoutX="229.0" layoutY="334.0" mnemonicParsing="false" onAction="#AddNewKnight" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Add Knight">
+      <TextField fx:id="nameText" layoutX="294.0" layoutY="121.0" />
+      <TextField fx:id="ageText" layoutX="294.0" layoutY="166.0" />
+      <TextField fx:id="centuryText" layoutX="294.0" layoutY="214.0" />
+      <TextField fx:id="nationalityText" layoutX="294.0" layoutY="258.0" />
+      <TextField fx:id="amountofmoneyText" layoutX="294.0" layoutY="294.0" />
+      <Button layoutX="223.0" layoutY="347.0" mnemonicParsing="false" onAction="#AddNewKnight" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Add Knight">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="30.0" layoutY="334.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
+      <Button layoutX="24.0" layoutY="347.0" mnemonicParsing="false" onAction="#BackToSelectKnight" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #80ed99; -fx-border-color: GREEN;" text="Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="addknighterror" layoutX="361.0" layoutY="333.0" prefHeight="54.0" prefWidth="284.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

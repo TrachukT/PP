@@ -74,12 +74,12 @@ public class Menu2 {
         stage.show();
     }
     public void buttonLogOut(ActionEvent event) throws IOException {
-//        KnightInfo knightInfo=new KnightInfo();
-//        AllDataInterface.setKnightInfo(knightInfo);
-//        List<EquipList> knightequip = new ArrayList<>();
-//        AllDataInterface.setKnightsEquip(knightequip);
-//        List<WeaponList> knightweapon = new ArrayList<>();
-//        AllDataInterface.setKnightsWeapon(knightweapon);
+        KnightInfo knightInfo=new KnightInfo();
+        AllDataInterface.setKnightInfo(knightInfo);
+        List<EquipList> knightequip = new ArrayList<>();
+        AllDataInterface.setKnightsEquip(knightequip);
+        List<WeaponList> knightweapon = new ArrayList<>();
+        AllDataInterface.setKnightsWeapon(knightweapon);
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

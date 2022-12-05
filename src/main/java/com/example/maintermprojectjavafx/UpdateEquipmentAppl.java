@@ -95,34 +95,66 @@ public class UpdateEquipmentAppl implements Initializable {
     public void chooseEquip(ActionEvent event){
         equipresult.setText("");
         int Id = EquipTable.getSelectionModel().getSelectedIndex();
+        Equipment equipment=EquipTable.getItems().get(Id);
+        EquipList equipList=new EquipList();
+        ReadData readData=new ReadData();
+        readData.readEquip(equipList);
+        Id = findidequip(equipList,equipment);
         allDataInterface.setIdofEquipment(Id);
         equipUpdateLabel.setVisible(true);
         costText.setVisible(true);
     }
-    public void SubmitUpdateEquip(ActionEvent event){
+    public void SubmitUpdateEquip(ActionEvent event) throws IOException {
         double cost=Double.parseDouble(costText.getText());
-        System.out.println(allDataInterface.getIdofEquipment());
+        //System.out.println(allDataInterface.getIdofEquipment());
         EquipList equipList=new EquipList();
         ReadData readData=new ReadData();
-        readData.readEquip(equipList);
+        if(equipList.getsize()==0)
+            readData.readEquip(equipList);
         equipList.updateEquipmentInterface(this.allDataInterface.getIdofEquipment(),cost);
         equipresult.setText("Update equipment successful");
+        buttonGetDataEquipment(event);
+    }
+    public int findidequip(EquipList equipList, Equipment elem){
+        int count=0;
+        for(;count<equipList.getsize();count++){
+            if(equipList.getelem(count).getName().equals(elem.getName())){
+                return (count);
+            }
+        }
+        return -1;
     }
     public void chooseWeapon(ActionEvent event){
         weaponresult.setText("");
         int IdW = WeaponTable.getSelectionModel().getSelectedIndex();
+        Weapon weapon= WeaponTable.getItems().get(IdW);
+        WeaponList weaponList=new WeaponList();
+        ReadData readData=new ReadData();
+        if(weaponList.getsize()==0)
+            readData.readWeapon(weaponList);
+        IdW = findidweapon(weaponList,weapon);
         allDataInterface.setIdofWeapon(IdW);
         weaponUpdateLabel.setVisible(true);
         updatecostText.setVisible(true);
     }
-    public void SubmitUpdateWeapon(ActionEvent event){
+    public void SubmitUpdateWeapon(ActionEvent event) throws IOException {
         double costWeapon=Double.parseDouble(updatecostText.getText());
-        System.out.println(allDataInterface.getIdofWeapon());
+        //System.out.println(allDataInterface.getIdofWeapon());
         WeaponList weaponList=new WeaponList();
         ReadData readData=new ReadData();
         readData.readWeapon(weaponList);
         weaponList.updateWeaponInterface(this.allDataInterface.getIdofWeapon(),costWeapon);
         weaponresult.setText("Update weapon successful");
+        buttonGetDataWeapon(event);
+    }
+    public int findidweapon(WeaponList weaponList,Weapon elem){
+        int count=0;
+        for(;count<weaponList.getsize();count++){
+            if(weaponList.getelem(count).getName().equals(elem.getName())){
+                return (count);
+            }
+        }
+        return -1;
     }
     public void buttonWeapon(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("UpdateExistedWeapon.fxml"));

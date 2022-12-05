@@ -65,7 +65,7 @@ public class AddEquipmentAppl {
         String nameText = name.getText();
         String materialText = material.getText();
         double costText = Double.parseDouble(cost.getText());
-        System.out.println(costText);
+       // System.out.println(costText);
         double weightText = Double.parseDouble(weight.getText());
         double strengthText = Double.parseDouble(strength.getText());
         String typeText = typeOfArmour.getText();
@@ -133,7 +133,7 @@ public class AddEquipmentAppl {
         WeaponList weaponList=new WeaponList();
         ReadData readData=new ReadData();
         readData.readWeapon(weaponList);
-        System.out.println(Label1.getText());
+        //System.out.println(Label1.getText());
         switch (Label1.getText()) {
             case "Type of knife" -> {
                 if (checkingName(weaponList,nameT))

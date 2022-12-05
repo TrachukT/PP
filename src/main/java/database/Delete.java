@@ -15,7 +15,7 @@ public class Delete {
             String query = String.format("delete from knightsequip where userid= '%s'",userid);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row deleteded");
+            //System.out.println("Row deleteded");
         }catch (Exception e){
             System.out.println("Delete failed\n"+e);
         }
@@ -26,7 +26,7 @@ public class Delete {
             String query = String.format("delete from knightsweapon where userid= '%s'",userid);
             statement= this.connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Row deleteded");
+            //System.out.println("Row deleteded");
         }catch (Exception e){
             System.out.println("Delete failed\n"+e);
         }

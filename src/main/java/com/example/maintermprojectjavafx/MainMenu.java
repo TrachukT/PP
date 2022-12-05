@@ -31,7 +31,6 @@ public class MainMenu {
         alert.setContentText("Do you want to exit?");
         if(alert.showAndWait().get() == ButtonType.OK)
         {
-            System.out.println("You are exited");
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }

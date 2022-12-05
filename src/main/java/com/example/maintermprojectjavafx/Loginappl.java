@@ -63,7 +63,6 @@ public class Loginappl {
             AllDataInterface.setKnightInfo(knightInfo);
             AllDataInterface.setKnightsEquip(knightsequip);
             AllDataInterface.setKnightsWeapon(knightsweapon);
-            //buildreport();
             switchMenuOfActions(event);
         }
         else if (usersdata.checkpassword(user)){
@@ -78,16 +77,6 @@ public class Loginappl {
             //switchBack(event);
         }
     }
-//    public void buildreport(){
-//        for(int i=0;i<knightInfo.getsize();i++){
-//            System.out.println(knightInfo.getknight(i).toString(i));
-//            if(knightsequip.get(i).getsize()!=0)
-//                knightsequip.get(i).printList();
-//            if(knightsweapon.get(i).getsize()!=0){
-//                knightsweapon.get(i).printList();
-//            }
-//        }
-//    }
     public void switchMenuOfActions(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

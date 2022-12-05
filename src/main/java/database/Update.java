@@ -26,8 +26,6 @@ public class Update {
         Statement statement;
         ResultSet resultSet;
         try {
-//            String id=type.toLowerCase()+"id";
-//            System.out.println(id);
             String query =String.format(Locale.US,"Update %s set cost = '%f' where name= '%s'",type.toLowerCase(),cost,name);
             statement=this.connection.createStatement();
             statement.executeUpdate(query);

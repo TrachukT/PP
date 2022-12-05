@@ -1,5 +1,6 @@
 package com.example.maintermprojectjavafx;
 
+import data.Email;
 import data.Login;
 import data.Loginlist;
 import database.ReadData;
@@ -31,9 +32,13 @@ public class RegistrationAppl {
     Label registered;
     public void ButtonRegister(ActionEvent event) throws IOException {
         String emailText = email.getText();
+        if(!emailText.contains("@gmail.com")){
+            error.setMinWidth(300);
+            error.setText("You entered wrond email version.Try again");
+            return;
+        }
         String usernameText = username.getText();
         String passwordText = password.getText();
-        System.out.println("fgfgfgfgf\n"+emailText+"\nfplg;flg");
         ReadData readData = new ReadData();
         Loginlist usersdata = new Loginlist();
         readData.readLogins(usersdata);
@@ -51,10 +56,12 @@ public class RegistrationAppl {
         if(!usersdata.checkmail(emailText)){
             error.setMinWidth(300);
             error.setText("There is already account with this email");
+            return;
         }
         else if (!usersdata.checkUsername(usernameText,emailText)){
             error.setMinWidth(300);
             error.setText("This username is already in the base,enter another one");
+            return;
         }
         else if(!usersdata.finduser(user)){
             usersdata.addLogin(usernameText,passwordText,emailText);
@@ -63,17 +70,19 @@ public class RegistrationAppl {
             registered.setMinHeight(33);
             error.setText("");
             registered.setText("Congratulations!You are registered.\nLog into created account.");
+            Email email1=new Email();
+            email1.registrationVerification(emailText);
             //switchBack(event);
         }
     }
-    public void switchMenuOfActions(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setTitle("Menu of actions");
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void switchMenuOfActions(ActionEvent event) throws IOException{
+//        root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setTitle("Menu of actions");
+//        stage.setScene(scene);
+//        stage.show();
+//    }
     public void switchBack(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
